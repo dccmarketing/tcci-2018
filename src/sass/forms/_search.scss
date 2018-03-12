@@ -1,0 +1,41 @@
+.menu-item.search {
+
+	@include phone-down() {
+		display: none;
+	}
+
+
+	.search-form {
+		position 	: absolute;
+		right 		: 50%;
+		top 		: 0;
+		transition 	: $trans__default;
+		width 		: 0%;
+		z-index 	: -1;
+
+		&.open {
+			border 	: 1px solid;
+			right 	: 2em;
+			width 	: 200px;
+			z-index : 0;
+
+			.search-field {
+				padding: 0.25em;
+			}
+		}
+	}
+
+	.search-field {
+		border 		: none;
+		padding 	: 0;
+		width 		: 100%;
+	}
+
+	.search-submit {
+		display: none;
+	}
+
+	.btn-search {
+		cursor: pointer;
+	}
+}

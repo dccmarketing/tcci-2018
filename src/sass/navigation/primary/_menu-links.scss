@@ -1,0 +1,55 @@
+/**
+ * Menu Item Links.
+ */
+.primary-menu-item-link {
+	color 			: $color__dark;
+	display			: block;
+	font-weight 	: 700;
+	line-height 	: 1;
+	padding 		: 0.5em 1em;
+	text-align 		: center;
+	text-decoration	: none;
+	text-transform 	: uppercase;
+
+	@include laptop-up() {
+		background-color: transparent;
+		padding 		: 0 1em;
+	}
+
+	&:focus {
+		outline-color: $color__med;
+	}
+}
+
+.primary-menu-item-link-0 {
+	// @include laptop-up {
+	// 	border-left	: 1px solid $teal;
+	// 	padding 	: 0 1em;
+	// }
+}
+
+.primary-menu-item-link-1 { // 2nd-level menu item link, first submenu
+	@include phone-down {
+		padding-left: 2em;
+	}
+}
+
+.primary-menu-item-link-2{ // 3rd-level menu item link, second submenu
+	@include phone-down {
+		//border-left : none;
+		padding-left: 3em;
+	}
+}
+
+.primary-menu-item-link-0-first {
+	// @include laptop-up {
+	// 	border-left		: none;
+	// 	padding-left 	: 0;
+	// }
+}
+
+.primary-menu-item-link-0-last {
+	// @include laptop-up {
+	// 	padding-right: 0;
+	// }
+}

@@ -1,0 +1,61 @@
+/**
+ * Toggle Button.
+ */
+.menu-primary-toggle {
+
+	@include resetbutton();
+
+	background		: $color__orange; // cannot use background-color to reset default WP button styles
+	color 			: $color__light;
+	font-size		: 1.25em;
+	line-height		: 1.5;
+	outline 		: 0;
+	padding 		: 0.5em;
+	position 		: initial !important;
+	width			: 100%;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background		: $color__orange;
+		border			: none;
+		box-shadow		: none;
+		border-color	: inherit;
+		color 			: $color__light;
+	}
+
+	@include tablet-portrait-up() {
+		margin 		: 0 auto;
+		max-width 	: 200px;
+		z-index		: 9999;
+	}
+
+	@include laptop-up {
+		display 		: none;
+	}
+
+	* {
+		pointer-events: none;
+	}
+}
+
+.menu-primary-submenu-toggle {
+	@include resetbutton();
+
+	cursor 		: pointer;
+	line-height	: 1.5;
+	width 		: 2em;
+
+	@include laptop-up {
+		display: none;
+	}
+}
+
+.menu-primary-submenu-icon {
+	display: none;
+
+	@include laptop-up {
+		display 	: inline-block;
+		margin-left : 0.25em;
+	}
+}

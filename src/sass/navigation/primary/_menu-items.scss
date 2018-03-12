@@ -1,0 +1,78 @@
+/**
+ * Menu Items
+ */
+.primary-menu-item { // Every menu item
+	position	: relative;
+	transition	: 0.3s ease;
+
+	@include tablet-down {
+		margin-bottom: 1em;
+	}
+
+	&:hover,
+	&.focus {
+
+		> ul {
+			@include tablet-portrait-up {
+				left 		: auto;
+				opacity 	: 1;
+				visibility 	: visible;
+			}
+		}
+
+		> a {
+			@include laptop-up {
+				color: $color__orange;
+			}
+		}
+
+	}
+}
+
+.primary-menu-item-has-children {
+	@include phone-down {
+		border-bottom 	: 3px solid $color__orange;
+	}
+}
+
+.primary-menu-item-0 {
+	@include laptop-up() {
+		align-items	: center;
+		display 	: flex;
+
+		&:not(:last-child) {
+			border-right: 1px solid orange;
+		}
+	}
+}
+
+.primary-menu-item-1 { // 2nd-level menu item, first submenu
+	display 	: block;
+	text-align 	: left;
+
+	&:last-child { // Last child of the 2nd-level submenu and below.
+
+		@include phone-down {
+			padding-bottom: 0;
+		}
+	}
+
+	&:hover,
+	&.focus,
+	&:focus,
+	&:active {
+
+		> ul {
+			@include tablet-portrait-up {
+				left 	: 100%;
+				top 	: 0;
+			}
+		}
+
+		a {
+			@include laptop-up() {
+				color: $trans__orange;
+			}
+		}
+	}
+}

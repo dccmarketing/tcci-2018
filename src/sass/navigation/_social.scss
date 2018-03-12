@@ -1,0 +1,38 @@
+.nav-social {
+
+	@include phone-down() {
+		padding-bottom 	: 0.5em;
+		padding-top 	: 0.5em;
+	}
+
+	@include uppermenu-to-laptop() {
+		margin-left 	: 1.5em;
+	}
+
+	ul {
+		display 		: flex;
+		justify-content : center;
+		@include resetlist();
+	}
+
+	.menu-item {
+		margin 			: 0 0.5em;
+		position 		: relative;
+
+		a {
+			display 		: block;
+			text-align 		: center;
+
+			@include phone-down() {
+				min-height	: 48px;
+				min-width 	: 48px;
+			}
+		}
+
+		svg {
+			fill 	: $color__orange;
+			height 	: $font__size-social;
+			width 	: $font__size-social;
+		}
+	}
+}

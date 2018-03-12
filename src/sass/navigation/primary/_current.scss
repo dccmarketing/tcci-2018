@@ -1,0 +1,18 @@
+/**
+ * Current Menu Items.
+ */
+.current-primary-menu-item {
+
+	&:hover > a {
+		color: $color__darkgray;
+	}
+}
+
+.current-primary-menu-item-link {
+	color 		: #e67f22;
+	font-weight	: 700;
+
+	&:visited {
+		color: #e67f22;
+	}
+}

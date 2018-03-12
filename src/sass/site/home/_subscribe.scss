@@ -1,0 +1,80 @@
+/*
+Subscribe
+ */
+.home-subscribe {
+	background-color: $color__light;
+}
+
+.subscribe-wrap {
+	margin 					: 0 auto;
+	max-width 				: 90vw;
+
+	@include tablet-portrait-up() {
+		border 					: 3px solid $color__gray;
+		border-top-left-radius	: 20px;
+		border-top-right-radius	: 20px;
+		padding 				: 1em;
+		padding-top 			: 0;
+	}
+}
+
+.subscribe-title {
+	background-color 	: $color__light;
+	color 				: $color__orange;
+	line-height 		: 1;
+	margin 				: 0 auto;
+	max-width 			: 450px;
+	text-align			: center;
+	text-transform		: uppercase;
+	transform 			: translateY( -60% );
+}
+
+.subscribe-content {
+	align-items	: center;
+	display		: flex;
+
+	@include phone-down() {
+		flex-wrap: wrap;
+	}
+}
+
+.subscribe-column {
+	flex-grow	: 1;
+	padding 	: 1em;
+}
+
+.subscribe-column-1 {
+
+}
+
+.subscribe-column-2 {
+
+}
+
+.subscribe-buttons {
+	@include resetlist();
+	display		: flex;
+	flex-wrap 	: wrap;
+
+	li {
+		margin-bottom: 1.5em;
+		width 		: 100%;
+	}
+}
+
+.subscribe-link {
+	color 			: $color__light;
+	display 		: block;
+	font-weight 	: 700;
+	padding 		: 0.25em;
+	text-align 		: center;
+	text-transform	: uppercase;
+}
+
+.subscribe-link__newsletters {
+	background-color: $color__orange;
+}
+
+.subscribe-link__briefs {
+	background-color: $color__darkgray;
+}
