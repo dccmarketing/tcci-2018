@@ -278,7 +278,7 @@
  * @param  {[type]} $color [description]
  * @return {[type]}        [description]
  */
-@mixin unline( $color, $hover: '' ) {
+@mixin unline( $color, $hover: null ) {
 	color 			: $color;
 	text-decoration : none;
 
@@ -291,7 +291,11 @@
 	}
 
 	&:hover {
-		color 			: #{$hover};
+		@if ($hover) { 
+			color: $hover;
+		} @else {
+			color: $color;
+		}
 		text-decoration : underline;
 	}
 }

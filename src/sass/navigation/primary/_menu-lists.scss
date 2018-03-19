@@ -24,7 +24,7 @@
 		display: none;
 	}
 
-	&.primary-menu-items-open {
+	&[aria-expanded="true"] {
 		display: block;
 	}
 

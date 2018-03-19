@@ -10,10 +10,12 @@
 get_header();
 
 	?><div id="primary" class="content-area">
-		<main id="main" role="main">
-			<header class="page-header">
-				<h1 class="page-title"><?php single_post_title(); ?></h1>
-			</header><?php
+		<main id="main" role="main"><?php
+
+			/**
+			 * The tcci_while_before action hook
+			 */
+			do_action( 'tcci_while_before' );
 
 			while ( have_posts() ) : the_post();
 
@@ -24,5 +26,4 @@ get_header();
 		?></main><!-- #main -->
 	</div><!-- #primary --><?php
 
-get_sidebar();
 get_footer();

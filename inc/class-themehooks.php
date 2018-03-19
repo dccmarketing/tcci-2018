@@ -18,6 +18,7 @@ class TCCI_Themehooks {
 	 */
 	public function hooks() {
 
+		add_action( 'tcci_while_before', 		array( $this, 'breadcrumbs' ) );
 		add_action( 'tcci_while_before', 		array( $this, 'title_single_post' ) );
 
 		add_action( 'tcci_entry_content_after', array( $this, 'equal_features' ), 10 );
@@ -148,6 +149,7 @@ class TCCI_Themehooks {
 		if ( 'post' != get_post_type() ) { return; }
 		if ( is_single() ) { return; }
 		if ( has_post_format() ) { return; }
+		if ( is_woocommerce() ) { return; }
 
 		?><div class="entry-meta"><?php
 
@@ -194,6 +196,7 @@ class TCCI_Themehooks {
 		if ( is_front_page() ) { return; }
 		if ( is_page() ) { return; }
 		if ( has_post_format( 'link' ) ) { return; }
+		if ( is_woocommerce() ) { return; }
 
 		if ( is_single() ) {
 
@@ -250,6 +253,7 @@ class TCCI_Themehooks {
 
 		if ( is_front_page() || is_home() ) { return; }
 		if ( ! is_page() ) { return; }
+		if ( is_woocommerce() ) { return; }
 
 		the_title( '<h1 class="page-title">', '</h1>' );
 

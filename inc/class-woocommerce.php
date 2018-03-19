@@ -46,6 +46,7 @@ class TCCI_WooCommerce {
 		remove_action( 'woocommerce_before_shop_loop', 						'woocommerce_catalog_ordering', 30 );
 		add_action( 'woocommerce_before_shop_loop', 						array( $this, 'woocommerce_catalog_ordering' ), 30 );
 		add_action( 'woocommerce_after_shop_loop', 							array( $this, 'add_form_to_tag_archive' ), 10, 1 );
+		add_filter( 'loop_shop_columns', 									array( $this, 'product_columns' ), 10, 1 );
 
 		/**
 		 * Allows HTML in term (category, term) descriptions
@@ -101,8 +102,6 @@ class TCCI_WooCommerce {
 		$resources = get_field( 'downloads_files' );
 		$title = get_field( 'downloads_title' );
 
-		if ( empty( $resources ) ) { return $tabs; }
-
 		if ( empty( $title ) ) {
 
 			$title = get_theme_mod( 'resources_tab_name' );
@@ -118,6 +117,21 @@ class TCCI_WooCommerce {
 		return $tabs;
 
 	} // extra_product_tabs()
+
+	/**
+	 * Changes the quantity of product columns on category pages.
+	 */
+	public function product_columns( $columns ) {
+
+		if ( is_product_category() ) {
+
+			$columns = 3;
+
+		}
+
+		return $columns;
+
+	} // product_columns()
 
 	/**
 	 * Adds the page title to an archive page

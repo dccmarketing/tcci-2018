@@ -7,11 +7,8 @@
  * @package TCCI
  */
 
-?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>><?php
-
-	do_action( 'tcci_entry_top' );
-
-	?><header class="entry-header content"><?php
+?><article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="entry-header content"><?php
 
 		/**
 		 * @hooked 		title_entry 		10

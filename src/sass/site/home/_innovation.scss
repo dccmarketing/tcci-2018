@@ -5,15 +5,40 @@ Innovation
 	background-color: $color__light;
 }
 
-.innovation-wrap {
-	margin 					: 0 auto;
-	max-width 				: 90vw;
+.home-innovation-wrap {
+	@include homewrap;
 }
 
-.innovation-description {
-	text-align: center;
-}
-
-.innovation-image {
+.home-innovation-image {
 	width: 100%;
+}
+
+.home-innovation-title-link {
+	@include unline($color__orange);
+}
+
+.home-innovation-content {
+	display: flex;
+
+	@include phone-down {
+		flex-wrap: wrap;
+	}
+}
+
+.home-innovation-description {
+
+	ul {
+		list-style: none;
+
+		li:before {
+			background-color: $color__orange;
+			border-radius: 50%;
+			content: "";
+			float: left;
+			height: 0.5em;
+			margin-right: 1em;
+			transform: translateY(100%);
+			width: 0.5em;
+		}
+	}
 }

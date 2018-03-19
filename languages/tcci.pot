@@ -32,19 +32,19 @@ msgstr ""
 msgid "Try looking in the monthly archives. %1$s"
 msgstr ""
 
-#: archive.php:48, index.php:48, search.php:41
+#: archive.php:53, index.php:48, search.php:41
 msgid "Older Press"
 msgstr ""
 
-#: archive.php:49, index.php:49, search.php:42
+#: archive.php:54, index.php:49, search.php:42
 msgid "More Recent Press"
 msgstr ""
 
-#: archive.php:55, index.php:55, search.php:48
+#: archive.php:60, index.php:55, search.php:48
 msgid "Older News"
 msgstr ""
 
-#: archive.php:56, index.php:56, search.php:49
+#: archive.php:61, index.php:56, search.php:49
 msgid "More Recent News"
 msgstr ""
 

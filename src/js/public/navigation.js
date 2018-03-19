@@ -10,6 +10,8 @@
 	if ( 'undefined' === typeof container ) { return FALSE; }
 
 	const menu = container.querySelector( '#primary-menu' );
+
+	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
 
 		let button = container.querySelector( '#primary-toggle' );
@@ -21,6 +23,47 @@
 	}
 
 	menu.setAttribute( 'aria-expanded', 'false' );
+
+	/**
+	 * Processes the event and call the correct
+	 * action based on the event target.
+	 *
+	 * @param 		object 		event 		The event.
+	 */
+	function clickEvent(event) {
+
+		let target = getEventTarget(event);
+
+		event.stopPropagation();
+		event.cancelBubble = true;
+
+		if (target.matches('.menu-primary-toggle')) {
+
+			toggleMenu(event, target);
+
+		}
+
+		if (target.matches('.close-tablet-menu-btn')) {
+
+			toggleMenu(event, target);
+
+		}
+
+		if (target.matches('.sub-menu')) {
+
+			toggleAttribute(target, 'aria-haspopup', 'true');
+
+		}
+
+		if (target.matches('.menu-primary-submenu-toggle')) {
+
+			openSubmenu(event, target);
+
+		}
+
+		return;
+
+	} // clickEvent()
 
 	/**
 	 * Returns the event target.
@@ -59,47 +102,6 @@
 		return getParent( parent, className );
 
 	} // getParent()
-
-	/**
-	 * Processes the event and call the correct
-	 * action based on the event target.
-	 *
-	 * @param 		object 		event 		The event.
-	 */
-	function clickEvent( event ) {
-
-		let target = getEventTarget( event );
-
-		event.stopPropagation();
-		event.cancelBubble = true;
-
-		if ( target.matches( '.menu-primary-toggle' ) ) {
-
-			toggleMenu( event, target );
-
-		}
-
-		if ( target.matches( '.close-tablet-menu-btn' ) ) {
-
-			toggleMenu( event, target );
-
-		}
-
-		if ( target.matches( '.sub-menu' ) ) {
-
-			toggleAttribute( target, 'aria-haspopup', 'true' );
-
-		}
-
-		if ( target.matches( '.menu-primary-submenu-toggle' ) ) {
-
-			openSubmenu( event, target );
-
-		}
-
-		return;
-
-	} // clickEvent()
 
 	/**
 	 * Opens the submenu on mobile and tablets.

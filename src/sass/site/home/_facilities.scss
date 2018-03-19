@@ -5,11 +5,10 @@ Facilities
 	background-color: $color__light;
 }
 
-.facilities-wrap {
-	margin 					: 0 auto;
-	max-width 				: 90vw;
+.home-facilities-wrap {
+	@include homewrap;
 }
 
-.facilities-image {
+.home-facilities-image {
 	width: 100%;
 }

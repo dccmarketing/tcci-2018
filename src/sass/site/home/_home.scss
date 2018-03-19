@@ -17,10 +17,9 @@
 		padding 	: 1em;
 		width 		: 100%;
 		margin 		: 0 auto;
-		max-width 	: 90vw;
 
-		@include tablet-portrait-up() {
-			font-size 	: 2em;
+		@include adminbar-up {
+			max-width 	: 80vw;
 		}
 
 		p {
@@ -33,9 +32,18 @@
 	}
 }
 
+.home-video-container {
+	max-height	: 600px;
+	overflow	: hidden;
+	position 	: relative;
+	width 		: 100%;
+}
+
 .home-video {
-	display	: block;
-	width	: 100%;
+	display		: block;
+	height 		: 100%;
+	object-fit	: cover;
+	width		: 100%;
 }
 
 @import "pillars";
@@ -44,3 +52,4 @@
 @import "innovation";
 @import "facilities";
 @import "subscribe";
+@import "cta";

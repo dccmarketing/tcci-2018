@@ -14,15 +14,20 @@ get_header();
 		get_sidebar( 'market' );
 
 		?><div id="primary" class="content-area sidebar-content">
-			<main id="main" role="main">
-				<header class="page-header"><?php
+			<main id="main" role="main"><?php
+
+				/**
+				 * The tcci_while_before action hook
+				 */
+				do_action( 'tcci_while_before' );
+
+				?><header class="page-header"><?php
 
 					the_archive_title( '<h1 class="page-title title-archive">', '</h1>' );
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 
-				?></header><!-- .page-header --><?php
-
-				?><div class="market-products"><?php
+				?></header><!-- .page-header -->
+				<div class="market-products"><?php
 
 				while ( have_posts() ) : the_post();
 

@@ -1,7 +1,7 @@
 /*
 Awards
  */
-.awards {
+.home-awards {
 	@include resetlist();
 	background-color		: $color__light;
 	display 				: flex;
@@ -10,13 +10,13 @@ Awards
 	margin 					: 0 auto;
 	padding 				: 0 1.5em;
 
-	@include tablet-portrait-up() {
+	@include adminbar-up {
 		border-top-left-radius	: 20px;
 		border-top-right-radius	: 20px;
-		max-width 				: 90vw;
+		max-width 				: $size__max-home;
 	}
 }
 
-.award {
+.home-award {
 	flex-grow: 1;
 }

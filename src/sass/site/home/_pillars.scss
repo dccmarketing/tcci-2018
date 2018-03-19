@@ -10,35 +10,36 @@ Pillars
 }
 
 .home-pillars__description {
-	margin 			: 0 auto;
-	max-width 		: 90vw;
+	font-size 		: 1.5em;
 	text-align		: center;
+
+	@include homewrap;
 }
 
-.pillars {
+.home-pillars-list {
 	@include resetlist();
 	display 				: flex;
 	justify-content 		: space-between;
 	margin 					: 0 auto;
-	max-width 				: 90vw;
+	max-width 				: $size__max-home;
 
 	@include mobile-admin-down() {
 		flex-direction 			: column;
 	}
 }
 
-.pillar {
+.home-pillar {
 	flex-grow	: 	1;
 	text-align 	: center;
 }
 
-.pillar-icon {
+.home-pillar-icon {
 	margin		: 0 auto;
 	min-height	: 225px;
 	min-width	: 225px;
 }
 
-.pillar-title {
+.home-pillar-title {
 	color 			: $color__light;
 	font-size 		: 2em;
 	font-weight 	: 700;
@@ -48,7 +49,7 @@ Pillars
 	text-transform 	: uppercase;
 }
 
-.pillar-description {
+.home-pillar-description {
 	font-size		: 0.85em;
 	margin 			: 0 auto 1.5em;
 	text-align 		: center;

@@ -7,11 +7,8 @@
  * @package TCCI
  */
 
-?><section class="no-results not-found"><?php
-
-	do_action( 'tcci_entry_top' );
-
-	?><header class="page-header contentnone">
+?><section class="no-results not-found">
+	<header class="page-header contentnone">
 		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'text-domain' ); ?></h1>
 	</header><!-- .page-header --><?php
 
