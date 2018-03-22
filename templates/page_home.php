@@ -216,10 +216,10 @@ get_header();
 					<div class="home-subscribe-column subscribe-column-2">
 						<ul class="home-subscribe-buttons">
 							<li>
-								<a class="home-subscribe-link home-subscribe-link__newsletters"><?php esc_html_e( 'Newsletters', 'tcci' ); ?></a>
+								<a class="home-subscribe-link home-subscribe-link__newsletters" href="/category/newsletters/"><?php esc_html_e( 'Newsletters', 'tcci' ); ?></a>
 							</li>
 							<li>
-								<a class="home-subscribe-link home-subscribe-link__briefs"><?php esc_html_e( 'Engineering Briefs', 'tcci' ); ?></a>
+								<a class="home-subscribe-link home-subscribe-link__briefs" href="/category/engineering-briefs/"><?php esc_html_e( 'Engineering Briefs', 'tcci' ); ?></a>
 							</li>
 						</ul>
 					</div>
