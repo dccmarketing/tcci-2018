@@ -28,8 +28,15 @@ get_header();
 
 			endif;
 
+			?><video autoplay loop muted playsinline class="home-video" preload="auto"<?php
+			
+				if ( ! empty( $fields['video_gif_url'] ) ) :
 
-			?><video autoplay="autoplay" class="home-video" loop="loop" muted="muted" preload="auto"><?php
+					?>poster="<?php echo esc_url( $fields['video_gif_url'] ); ?>"<?php
+
+				endif;
+			
+			?>><?php
 
 			if ( ! empty( $fields['video_url'] ) ) {
 
