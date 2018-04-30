@@ -1,0 +1,7 @@
+.main-navigation {
+	display			: block;
+
+	@include phone-down() {
+		width			: 100%;
+	}
+}

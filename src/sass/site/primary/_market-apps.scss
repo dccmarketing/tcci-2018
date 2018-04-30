@@ -1,0 +1,75 @@
+.wrap-market-apps,
+.wrap-navboxes,
+.menu-list {
+	@include resetlist();
+	display 		: flex;
+	flex-wrap 		: wrap;
+	justify-content : center;
+
+	@include adminbar-up() {
+		justify-content: flex-start;
+	}
+}
+
+.market-app,
+.navbox {
+	border 		: 1px solid $color__light;
+	margin 		: 1%;
+	transition 	: $trans__default;
+	width 		: 100%;
+
+	&:hover {
+		background-color: $color__orange;
+	}
+
+	&.half {
+		@include tablet-portrait-up() {
+			width: 48%;
+		}
+	}
+
+	&.third {
+		@include tablet-portrait-up() {
+			width: 48%;
+		}
+
+		@include adminbar-up() {
+			width: 31.33%;
+		}
+	}
+
+	&.fourth {
+		@include tablet-portrait-up() {
+			width: 48%;
+		}
+
+		@include adminbar-up() {
+			width: 23%;
+		}
+	}
+
+}
+
+.market-img,
+.navbox-img {
+	background-position : center center;
+	background-repeat 	: no-repeat;
+	background-size 	: cover;
+	height 				: 187px;
+	width 				: 100%;
+
+	.img-short & {
+		height: 150px;
+	}
+
+	.img-tall & {
+		height: 250px;
+	}
+}
+
+.navbox-link {
+	display 	: block;
+	text-align 	: center;
+
+	@include unline( $color__dark );
+}

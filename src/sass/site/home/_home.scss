@@ -1,0 +1,55 @@
+.home {
+	color: $color__dark;
+
+	article {
+		background-color: $color__darkgray;
+		color 			: $color__light;
+	}
+
+	section {
+		padding: 2em 0;
+	}
+
+	.page-content {
+		font-size 	: 1.5em;
+		line-height : 1;
+		overflow 	: auto;
+		padding 	: 1em;
+		width 		: 100%;
+		margin 		: 0 auto;
+
+		@include adminbar-up {
+			max-width 	: 80vw;
+		}
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.edit-link {
+		display: none;
+	}
+}
+
+.home-video-container {
+	max-height	: 600px;
+	overflow	: hidden;
+	position 	: relative;
+	width 		: 100%;
+}
+
+.home-video {
+	display		: block;
+	height 		: 100%;
+	object-fit	: cover;
+	width		: 100%;
+}
+
+@import "pillars";
+@import "awards";
+@import "products";
+@import "innovation";
+@import "facilities";
+@import "subscribe";
+@import "cta";

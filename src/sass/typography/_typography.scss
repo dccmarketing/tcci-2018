@@ -1,0 +1,12 @@
+body,
+button,
+[role="button"]
+input,
+select,
+textarea {
+	@include font-size(1.1);
+
+	color 		: $color__darkgray;
+	font-family	: $font__main;
+	line-height	: $font__line-height-body;
+}

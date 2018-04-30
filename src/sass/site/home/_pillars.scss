@@ -1,0 +1,60 @@
+/*
+Pillars
+ */
+.home-pillars {
+	background-color: $color__orange;
+
+	&.clear {
+		padding-bottom: 0;
+	}
+}
+
+.home-pillars__description {
+	font-size 		: 1.5em;
+	text-align		: center;
+
+	@include homewrap;
+}
+
+.home-pillars-list {
+	@include resetlist();
+	display 				: flex;
+	justify-content 		: space-between;
+	margin 					: 0 auto;
+	max-width 				: $size__max-home;
+
+	@include mobile-admin-down() {
+		flex-direction 			: column;
+	}
+}
+
+.home-pillar {
+	flex-grow	: 	1;
+	text-align 	: center;
+}
+
+.home-pillar-icon {
+	margin		: 0 auto;
+	min-height	: 225px;
+	min-width	: 225px;
+}
+
+.home-pillar-title {
+	color 			: $color__light;
+	font-size 		: 2em;
+	font-weight 	: 700;
+	margin-bottom 	: 0;
+	text-align 		: center;
+	text-shadow 	: -2px 2px 0 $color__dark;
+	text-transform 	: uppercase;
+}
+
+.home-pillar-description {
+	font-size		: 0.85em;
+	margin 			: 0 auto 1.5em;
+	text-align 		: center;
+
+	@include adminbar-up() {
+		max-width 		: 220px;
+	}
+}

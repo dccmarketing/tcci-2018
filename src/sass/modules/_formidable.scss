@@ -1,0 +1,23 @@
+.frm_style_formidable-style {
+	&.with_frm_style {
+		input[type=text],
+		input[type=email] {
+			border-radius: 0;
+		}
+
+		.frm_submit {
+			button {
+				background		: $color__orange;
+				border-color 	: $color__orange;
+				border-radius	: 0;
+				color 			: $color__light;
+				font-weight 	: 700;
+				text-transform 	: uppercase;
+
+				&:hover {
+					border-color 	: $color__orange;
+				}
+			}
+		}
+	}
+}

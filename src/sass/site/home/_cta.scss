@@ -1,0 +1,36 @@
+.home-call-to-action {
+	background-color: rgba(0,0,0,0.5);
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.home-cta-wrap {
+	left: 50%;
+	position: absolute;
+	text-align: center;
+	top: 60%;
+	transform: translate(-50%,-50%);
+	z-index: 1;
+}
+
+.home-cta-logo {
+	margin-bottom: 1em;
+	max-width: 200px;
+}
+
+.home-cta-link {
+	background-color: $color__orange;
+	color: $color__light;
+	font-size: 1.25em;
+	padding: 0.35em;
+	text-decoration: none;
+	transition: $trans__default;
+
+	&:hover {
+		background-color: $color__light;
+		color: $color__orange;
+	}
+}

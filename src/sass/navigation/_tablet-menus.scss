@@ -1,0 +1,353 @@
+/**
+ * Tablet menus. Apply the root class to the body tag.
+ */
+
+$bg__tablet-menu: $trans__orange;
+
+.close-tablet-menu-btn {
+	@include resetbutton();
+	display 	: none;
+	min-height 	: 48px;
+	padding		: .5em 1em;
+	width 		: 100%;
+
+	@include tablet-to-laptop {
+		display		: block;
+	}
+
+	&:focus,
+	&:active,
+	&.focus,
+	&:hover {
+		background	: $color__dark;
+		font-weight : 700;
+		outline 	: none;
+
+		.close-btn-text {
+			&:before {
+				border-right-color: $color__light;
+			}
+		}
+	}
+}
+
+.close-btn-text {
+	pointer-events: none;
+
+	&:before,
+	&:after {
+		border 	: 5px solid transparent;
+		content : '';
+	}
+}
+
+/**
+ * Slide on top of content from left
+ */
+.tablet-slide-ontop-from-left {
+	.primary-menu-items-0 {
+		@include tablet-to-laptop {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			display 		: block;
+			height 			: 100%;
+			left 			: 0;
+			overflow 		: auto;
+			position 		: fixed;
+			top 			: 0;
+			transform 		: translateX( -$size__menu_width);
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+
+			&[aria-expanded="true"] {
+				transform 	: translateX(0);
+			}
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@include tablet-to-adminbar {
+				padding-top: $size__wp-admin-bar-1;
+			}
+
+			@include adminbar-to-laptop {
+				padding-top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+	.close-btn-text {
+		&:before {
+			@include tablet-to-laptop {
+				border-right-color	: $color__dark;
+				display 			: inline-block;
+				margin-right		: 0.5em;
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
+			position 		: absolute;
+			right 			: 0;
+			width 			: $size__tablet-toggle-width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Slide on top of content from right
+ */
+.tablet-slide-ontop-from-right {
+	.primary-menu-items-0 {
+		@include tablet-to-laptop {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			display 		: block;
+			height 			: 100%;
+			right 			: 0;
+			overflow 		: auto;
+			position 		: fixed;
+			top 			: 0;
+			transform 		: translateX( $size__menu_width);
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+
+			&[aria-expanded="true"] {
+				transform 	: translateX(0);
+			}
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@include tablet-to-adminbar {
+				padding-top: $size__wp-admin-bar-1;
+			}
+
+			@include adminbar-to-laptop {
+				padding-top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+	.close-btn-text {
+		&:after {
+			@include tablet-to-laptop {
+				border-left-color	: $color__dark;
+				display 			: inline-block;
+				margin-left			: 0.5em;
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
+			position 		: absolute;
+			left 			: 0;
+			width 			: $size__tablet-toggle-width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Slide on top of content from top.
+ */
+.tablet-slide-ontop-from-top {
+	.primary-menu-items-0 {
+		@include tablet-to-laptop {
+			background-color: $bg__tablet-menu;
+			display 		: block;
+			height 			: $size__menu_height;
+			left 			: 0;
+			overflow 		: auto;
+			position 		: absolute;
+			right 			: 0;
+			top 			: 0;
+			transform 		: translateY( -$size__menu_height);
+			transition 		: transform 0.4s ease;
+			width 			: 100%;
+			z-index 		: 9999;
+
+			&[aria-expanded="true"] {
+				transform 	: translateY(0);
+			}
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@include tablet-to-adminbar {
+				padding-top: $size__wp-admin-bar-1;
+			}
+
+			@include adminbar-to-laptop {
+				padding-top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
+			position 		: absolute;
+			right 			: 0;
+			width 			: $size__tablet-toggle-width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Slide on top of content from bottom.
+ */
+.tablet-slide-ontop-from-bottom {
+	.primary-menu-items-0 {
+		@include tablet-to-laptop {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			display 		: block;
+			height 			: $size__menu_height;
+			left 			: 0;
+			overflow 		: auto;
+			position 		: absolute;
+			right 			: 0;
+			transform 		: translateY( $size__menu_height);
+			transition 		: transform 0.4s ease;
+			width 			: 100%;
+			z-index 		: 9999;
+
+			&[aria-expanded="true"] {
+				transform 	: translateY(0);
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
+			position 		: absolute;
+			right 			: 0;
+			width 			: $size__tablet-toggle-width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Pushes content aside from left.
+ */
+.tablet-push-from-left {
+
+	&.tablet-menu-open {
+		@include tablet-to-laptop {
+			transform: translateX( $size__menu_width );
+
+			.menu-primary-toggle {
+				transform: translateX(-$size__menu_width);
+			}
+		}
+	}
+
+	.primary-menu-items-0 {
+		@include tablet-to-laptop {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			height 			: 100%;
+			left 			: 0;
+			overflow 		: auto;
+			position 		: fixed;
+			top 			: 0;
+			transform 		: translateX( -$size__menu_width);
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@include tablet-to-adminbar {
+				top: $size__wp-admin-bar-1;
+			}
+
+			@include adminbar-to-laptop {
+				top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+	.menu-primary-toggle {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
+			position 		: absolute;
+			right 			: 0;
+			transition 		: transform 0.4s ease;
+			width 			: $size__tablet-toggle-width;
+			z-index 		: 9999;
+		}
+	}
+}
+
+/**
+ * Pushes content aside from right.
+ */
+.tablet-push-from-right {
+
+	&.tablet-menu-open {
+		@include tablet-to-laptop {
+			transform: translate( -$size__menu_width );
+
+			.menu-primary-toggle {
+				transform: translateX($size__menu_width);
+			}
+		}
+	}
+
+	.primary-menu-items-0 {
+		@include tablet-to-laptop {
+			background-color: $bg__tablet-menu;
+			bottom 			: 0;
+			height 			: 100%;
+			right 			: 0;
+			overflow 		: auto;
+			position 		: fixed;
+			top 			: 0;
+			transform 		: translateX( $size__menu_width );
+			transition 		: transform 0.4s ease;
+			width 			: $size__menu_width;
+			z-index 		: 9999;
+		}
+	}
+
+	&.admin-bar {
+		.primary-menu-items-0 {
+			@include tablet-to-adminbar {
+				top: $size__wp-admin-bar-1;
+			}
+
+			@include adminbar-to-laptop {
+				top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+
+
+	.menu-primary-toggle {
+		@include tablet-to-laptop {
+			height 			: $size__tablet-toggle-height;
+			position 		: absolute;
+			left 			: 0;
+			transition 		: transform 0.4s ease;
+			width 			: $size__tablet-toggle-width;
+			z-index 		: 9999;
+		}
+	}
+}

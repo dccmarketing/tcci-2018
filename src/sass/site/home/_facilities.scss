@@ -1,0 +1,14 @@
+/*
+Facilities
+ */
+.home-facilities {
+	background-color: $color__light;
+}
+
+.home-facilities-wrap {
+	@include homewrap;
+}
+
+.home-facilities-image {
+	width: 100%;
+}

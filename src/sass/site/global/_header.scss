@@ -1,0 +1,66 @@
+.site-header {
+	// DO NOT ADD PADDING HERE! - it screws up menus
+	align-items 	: center;
+	background-color: $color__light;
+	display 		: flex;
+	grid-area 		: header;
+	justify-content : center;
+	overflow 		: auto;
+
+
+
+	@include phone-down() {
+		flex-wrap: wrap;
+	}
+
+	@include tablet-portrait-up() {
+		overflow 		: visible;
+
+		.home & {
+			background-color: $trans__light-half;
+			position: absolute;
+			top 	: 0;
+			width 	: 100%;
+			z-index : 99;
+		}
+
+		.home.admin-bar & {
+			top: $size__wp-admin-bar-1;
+
+			@media only screen and (min-width: 784px) {
+				top: $size__wp-admin-bar-2;
+			}
+		}
+	}
+}
+
+// .site-branding {
+// 	padding: 0 1em;
+//
+// 	@include phone-down() {
+// 		margin: 0 auto;
+// 	}
+//
+// }
+
+.site-title {
+	margin 		: 0.25em 0 0;
+	text-align 	: center;
+	padding		: 0 1em;
+
+	a {
+		color 			: $color__dark;
+		text-decoration : none;
+	}
+}
+
+.custom-logo-link {
+	display 		: block;
+	margin 			: 0 auto;
+	max-height 		: 150px;
+	max-width 		: 150px;
+}
+
+.site-description {
+	text-align: center;
+}

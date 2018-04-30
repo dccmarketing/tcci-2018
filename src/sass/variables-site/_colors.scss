@@ -1,0 +1,18 @@
+$color__light 		: #fff;
+$color__med 		: #ccc;
+$color__dark 		: #020202;
+$color__darkgray 	: #58595b;
+$color__gray 		: #d1d2d4;
+$color__orange 		: #e67f22;
+
+$trans__orange 		: rgba( $color__orange, 0.9 );
+
+$trans__light-mostly: rgba(255, 255, 255, 0.8);
+$trans__light-half 	: rgba(255, 255, 255, 0.5);
+
+$trans__dark-mostly : rgba(0, 0, 0, 0.8);
+$trans__dark-half 	: rgba(0, 0, 0, 0.05);
+$trans__dark-quarter: rgba(0, 0, 0, 0.25);
+
+$lighten__med 		: lighten( $color__med, 10% );
+$darken__med 		: darken( $color__med, 10% );
