@@ -21,7 +21,7 @@ get_header();
 					<div class="home-cta-wrap">
 						<img class="home-cta-logo" src="<?php echo esc_url( $fields['cta_logo'] ); ?>" />
 						<p>
-							<a class="home-cta-link" href="<?php echo esc_url( $fields['cta_link'] ); ?>"><?php echo esc_html( $fields['cta_text'] ); ?></a>
+							<a class="home-cta-link home-top-radius" href="<?php echo esc_url( $fields['cta_link'] ); ?>"><?php echo esc_html( $fields['cta_text'] ); ?></a>
 						</p>
 					</div>
 				</div><?php
@@ -53,37 +53,10 @@ get_header();
 
 		endwhile; // loop
 
-		?><section class="home-pillars clear"><?php
+		if ( ! empty( $fields['awards'][0] ) ) :
 
-			if ( ! empty( $fields['pillars_content'][0] ) ) :
-
-				?><div class="home-pillars__description"><?php
-
-					echo apply_filters( 'the_content', $fields['pillars_content'] );
-
-				?></div><?php
-
-			endif;
-
-			if ( ! empty( $fields['pillars'][0] ) ) :
-
-				?><ul class="home-pillars-list"><?php
-
-					foreach ( $fields['pillars'] as $pillar ) :
-
-						?><li class="home-pillar">
-							<img class="home-pillar-icon" src="<?php echo esc_url( $pillar['pillar_icon'] ); ?>" />
-						</li><?php
-
-					endforeach;
-
-				?></ul><?php
-
-			endif;
-
-			if ( ! empty( $fields['awards'][0] ) ) :
-
-				?><ul class="home-awards"><?php
+			?><section class="home-awards">
+				<ul class="home-awards-list"><?php
 
 					foreach ( $fields['awards'] as $award ) :
 
@@ -93,50 +66,12 @@ get_header();
 
 					endforeach;
 
-				?></ul><?php
+				?></ul>
+			</section><?php
 
-			endif;
+		endif;
 
-		?></section>
-		<section class="home-innovation clear">
-			<div class="home-innovation-wrap"><?php
-
-				if ( ! empty( $fields['innovation_product'] ) && is_object( $fields['innovation_product'] ) ) :
-
-					$media_dir = wp_upload_dir();
-					$images = tcci_get_featured_images( $fields['innovation_product']->ID );
-
-					?><img class="home-innovation-image" src="<?php echo esc_url( $media_dir['baseurl'] ); ?>/2018/03/innovation-spotlight-header.png" /><?php
-					
-					if ( ! empty( $fields['innovation_content'] ) ) {
-
-						?><div class="home-innovation-description"><?php
-
-							echo apply_filters( 'the_content', $fields['innovation_content'] );
-
-						?></div><?php
-
-					}
-					
-					?><div class="home-innovation-content">
-						<div>
-							<img class="home-innovation-image" src="<?php echo esc_url( $images['sizes']['large']['url'] ); ?>" />
-						</div>
-						<div class="home-innovation-description">
-							<a class="home-innovation-title-link" href="<?php echo esc_url( get_permalink( $fields['innovation_product']->ID ) ); ?>">
-								<h2 class="home-innovation-title"><?php echo esc_html( $fields['innovation_product']->post_title ); ?></h2>
-							</a><?php
-
-							echo apply_filters( 'the_content', $fields['innovation_product']->post_content ); 
-							
-						?></div>
-					</div><?php
-
-				endif;
-
-			?></div>
-		</section>
-		<section class="home-products clear">
+		?><section class="home-products">
 			<div class="home-products-wrap">
 				<h2 class="home-products-title"><?php
 
@@ -159,7 +94,7 @@ get_header();
 
 								if ( ! empty( $product['product_url'] ) ) :
 
-									?><a class="home-product-link" href="<?php
+									?><a class="home-product-link home-top-radius" href="<?php
 
 										echo esc_url( get_term_link( $product['product_url']->term_id ) );
 
@@ -193,7 +128,76 @@ get_header();
 
 			?></div>
 		</section>
-		<section class="home-facilities clear">
+		<section class="home-pillars"><?php
+
+			if ( ! empty( $fields['pillars_content'][0] ) ) :
+
+				?><div class="home-pillars__description"><?php
+
+					echo apply_filters( 'the_content', $fields['pillars_content'] );
+
+				?></div><?php
+
+			endif;
+
+			if ( ! empty( $fields['pillars'][0] ) ) :
+
+				?><ul class="home-pillars-list"><?php
+
+					foreach ( $fields['pillars'] as $pillar ) :
+
+						?><li class="home-pillar home-top-radius">
+							<a class="home-pillar-link home-top-radius" href="/about-us2/">
+								<img class="home-pillar-icon" src="<?php echo esc_url( $pillar['pillar_icon'] ); ?>" />
+							</a>
+						</li><?php
+
+					endforeach;
+
+				?></ul><?php
+
+			endif;
+
+		?></section>
+		<section class="home-innovation">
+			<div class="home-innovation-wrap"><?php
+
+				if ( ! empty( $fields['innovation_product'] ) && is_object( $fields['innovation_product'] ) ) :
+
+					$media_dir = wp_upload_dir();
+					$images = tcci_get_featured_images( $fields['innovation_product']->ID );
+
+					?><img class="home-innovation-image" src="<?php echo esc_url( $media_dir['baseurl'] ); ?>/2018/03/innovation-spotlight-header.png" /><?php
+					
+					if ( ! empty( $fields['innovation_content'] ) ) {
+
+						?><div class="home-innovation-description"><?php
+
+							echo apply_filters( 'the_content', $fields['innovation_content'] );
+
+						?></div><?php
+
+					}
+					
+					?><div class="home-innovation-content">
+						<a class="home-innovation-image-link home-top-radius" href="<?php echo esc_url( get_permalink( $fields['innovation_product']->ID ) ); ?>">
+							<img class="home-innovation-image" src="<?php echo esc_url( $images['sizes']['medium']['url'] ); ?>" />
+						</a>
+						<div class="home-innovation-product-description">
+							<a class="home-innovation-title-link" href="<?php echo esc_url( get_permalink( $fields['innovation_product']->ID ) ); ?>">
+								<h2 class="home-innovation-title"><?php echo esc_html( $fields['innovation_product']->post_title ); ?></h2>
+							</a><?php
+
+							echo apply_filters( 'the_content', $fields['innovation_product']->post_content ); 
+							
+						?></div>
+					</div><?php
+
+				endif;
+
+			?></div>
+		</section>
+		<section class="home-facilities">
 			<div class="home-facilities-wrap"><?php
 
 				if ( ! empty( $fields['facilities_image'] ) ) {
@@ -226,10 +230,10 @@ get_header();
 					<div class="home-subscribe-column subscribe-column-2">
 						<ul class="home-subscribe-buttons">
 							<li>
-								<a class="home-subscribe-link home-subscribe-link__newsletters" href="/category/newsletters/"><?php esc_html_e( 'Newsletters', 'tcci' ); ?></a>
+								<a class="home-subscribe-link home-subscribe-link__newsletters home-top-radius" href="/category/newsletters/"><?php esc_html_e( 'Newsletters', 'tcci' ); ?></a>
 							</li>
 							<li>
-								<a class="home-subscribe-link home-subscribe-link__briefs" href="/category/engineering-briefs/"><?php esc_html_e( 'Engineering Briefs', 'tcci' ); ?></a>
+								<a class="home-subscribe-link home-subscribe-link__briefs home-top-radius" href="/category/engineering-briefs/"><?php esc_html_e( 'Engineering Briefs', 'tcci' ); ?></a>
 							</li>
 						</ul>
 					</div>

@@ -2,19 +2,22 @@
 Awards
  */
 .home-awards {
-	@include resetlist();
-	background-color		: $color__light;
-	display 				: flex;
-	flex-wrap 				: wrap;
-	justify-content 		: center;
 	margin 					: 0 auto;
 	padding 				: 0 1.5em;
 
 	@include adminbar-up {
 		border-top-left-radius	: 20px;
 		border-top-right-radius	: 20px;
-		max-width 				: $size__max-home;
+		max-width 				: #{$size__max-home}vw;
 	}
+}
+
+.home-awards-list {
+	@include resetlist();
+	display 				: flex;
+	flex-wrap 				: wrap;
+	justify-content 		: center;
+	@include homewrap( 70 );	
 }
 
 .home-award {

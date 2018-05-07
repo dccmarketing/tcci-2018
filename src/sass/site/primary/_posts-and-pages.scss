@@ -52,7 +52,7 @@
 	margin 		: 0 auto $size__default-marg;
 
 	@include adminbar-up {
-		max-width: $size__max-home;
+		max-width: #{$size__max-home}vw;
 	}
 
 	.home & {
