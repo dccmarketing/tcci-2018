@@ -197,7 +197,9 @@ get_header();
 
 				if ( ! empty( $fields['facilities_image'] ) ) {
 
-					?><img class="home-facilities-image" src="<?php echo esc_url( $fields['facilities_image'] ); ?>" /><?php
+					?><a class="home-facilities-link" href="/locations/">
+						<img class="home-facilities-image" src="<?php echo esc_url( $fields['facilities_image'] ); ?>" />
+					</a><?php
 
 				}
 
