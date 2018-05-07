@@ -194,7 +194,7 @@ get_header();
 
 				if ( ! empty( $fields['facilities_image'] ) ) {
 
-					?><a href="https://tccimfg.com/locations/"><img class="home-facilities-image" src="<?php echo esc_url( $fields['facilities_image'] ); ?>" /></a><?php
+					?><a href="/locations/"><img class="home-facilities-image" src="<?php echo esc_url( $fields['facilities_image'] ); ?>" /></a><?php
 
 				}
 
