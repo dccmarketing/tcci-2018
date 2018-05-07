@@ -78,7 +78,6 @@
 				$primary_menu_args['menu_class']      	= 'primary-menu-items primary-menu-items-0';
 				$primary_menu_args['menu_id'] 			= 'primary-menu';
 				$primary_menu_args['theme_location'] 	= 'primary';
-				$primary_menu_args['walker']  			= new TCCI_Walker();
 
 				wp_nav_menu( $primary_menu_args );
 

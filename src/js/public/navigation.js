@@ -2,27 +2,29 @@
  * navigation.js
  *
  * Handles toggling the navigation menu for small screens and enables TAB key
- * navigation support for dropdown menus.
+ * navigation suypport for dropdown menus.
  */
-( function() {
+(function () {
 
-	const container = document.querySelector( '#site-navigation' );
-	if ( 'undefined' === typeof container ) { return FALSE; }
+	const container = document.querySelector('#site-navigation');
+	if (!container) { return; }
 
-	const menu = container.querySelector( '#primary-menu' );
+	const menu = container.querySelector('#primary-menu');
 
 	// Hide menu toggle button if menu is empty and return early.
-	if ( 'undefined' === typeof menu ) {
+	if ('undefined' === typeof menu) {
 
-		let button = container.querySelector( '#primary-toggle' );
-
+		const button = container.querySelector('.menu-primary-toggle');
+		x
 		button.style.display = 'none';
 
-		return FALSE;
+		return;
 
 	}
 
-	menu.setAttribute( 'aria-expanded', 'false' );
+	menu.setAttribute('aria-expanded', 'false');
+
+
 
 	/**
 	 * Processes the event and call the correct
@@ -33,6 +35,8 @@
 	function clickEvent(event) {
 
 		let target = getEventTarget(event);
+
+		console.log(target);
 
 		event.stopPropagation();
 		event.cancelBubble = true;
@@ -49,19 +53,11 @@
 
 		}
 
-		if (target.matches('.sub-menu')) {
-
-			toggleAttribute(target, 'aria-haspopup', 'true');
-
-		}
-
 		if (target.matches('.menu-primary-submenu-toggle')) {
 
 			openSubmenu(event, target);
 
 		}
-
-		return;
 
 	} // clickEvent()
 
@@ -71,7 +67,7 @@
 	 * @param 		object 		event 		The event.
 	 * @return 		object 		target 		The event target.
 	 */
-	function getEventTarget( event ) {
+	function getEventTarget(event) {
 
 		event = event || window.event;
 
@@ -89,17 +85,17 @@
 	 * @param 		string 		className 		Name of the class to find.
 	 * @return 		object 						The parent element.
 	 */
-	function getParent( el, className ) {
+	function getParent(el, className) {
 
 		let parent = el.parentNode;
 
-		if ( '' !== parent.classList && parent.classList.contains( className ) ) {
+		if ('' !== parent.classList && parent.classList.contains(className)) {
 
 			return parent;
 
 		}
 
-		return getParent( parent, className );
+		return getParent(parent, className);
 
 	} // getParent()
 
@@ -112,19 +108,21 @@
 	 * @param 		object 		event 		The event.
 	 * @param 		object 		target 		The event target.
 	 */
-	function openSubmenu( event, target ) {
+	function openSubmenu(event, target) {
 
 		event.preventDefault();
 
-		let menuItem 	= getParent( target, 'menu-item' );
-		//var subMenu 	= menuItem.querySelector( '.wrap-submenu' );
-		let subMenu 	= menuItem.querySelector( '.primary-menu-items' );
-		if ( ! subMenu ) { return; }
+		console.log(target)
 
-		subMenu.classList.toggle( 'primary-menu-items-closed' );
-		menuItem.classList.toggle( 'primary-menu-items-open' );
+		let menuItem = getParent(target, 'menu-item');
+		let subMenu = menuItem.querySelector('.primary-menu-items');
+		if (!subMenu) { return; }
 
-		if ( target.classList.contains( 'primary-menu-items-open' ) ) {
+		subMenu.classList.toggle('primary-menu-items-closed');
+		menuItem.classList.toggle('menu-primary-items-open');
+		target.classList.toggle('submenu-expanded');
+
+		if (target.classList.contains('submenu-expanded')) {
 
 			target.innerHTML = '-';
 
@@ -143,13 +141,13 @@
 	 * @param 		string 		attribute 		The attribute name.
 	 * @param 		mixed 		newValue 		The new value.
 	 */
-	function toggleAttribute( element, attribute, newValue ) {
+	function toggleAttribute(element, attribute, newValue) {
 
-		let value = element.getAttribute( attribute );
+		let value = element.getAttribute(attribute);
 
-		if ( newValue === value ) { return; }
+		if (newValue === value) { return; }
 
-		element.setAttribute( attribute, newValue );
+		element.setAttribute(attribute, newValue);
 
 	} // toggleAttribute()
 
@@ -158,22 +156,22 @@
 	 *
 	 * @param 		object 		event 		The event.
 	 */
-	function toggleFocus( event ) {
+	function toggleFocus(event) {
 
-		let target = getEventTarget( event );
+		let target = getEventTarget(event);
 
 		event.stopPropagation();
 		event.cancelBubble = true;
 
-		if ( target.classList.contains( 'nav-menu' ) ) { return; }
+		if (target.classList.contains('nav-menu')) { return; }
 
-		if ( 'li' === target.tagName.toLowerCase() ) {
+		if ('li' === target.tagName.toLowerCase()) {
 
-			target.classList.toggle( 'focus' );
+			target.classList.toggle('focus');
 
 		} else {
 
-			toggleFocus( event, target.parentNode );
+			toggleFocus(event, target.parentNode);
 
 		}
 
@@ -185,27 +183,25 @@
 	 * @param 		object 		event 		The event.
 	 * @param 		object 		target 		The event target.
 	 */
-	function toggleMenu( event, target ) {
+	function toggleMenu(event, target) {
 
-		container.classList.toggle( 'nav-primary-open' );
+		container.classList.toggle('nav-1-open');
 
-		if ( container.classList.contains( 'nav-primary-open' ) ) {
+		if (container.classList.contains('nav-1-open')) {
 
-			toggleAttribute( menu, 'aria-expanded', 'true' );
-			toggleAttribute( target, 'aria-expanded', 'true' );
+			toggleAttribute(menu, 'aria-expanded', 'true');
+			toggleAttribute(target, 'aria-expanded', 'true');
 
 		} else {
 
-			toggleAttribute( menu, 'aria-expanded', 'false' );
-			toggleAttribute( target, 'aria-expanded', 'false' );
+			toggleAttribute(menu, 'aria-expanded', 'false');
+			toggleAttribute(target, 'aria-expanded', 'false');
 
 		}
 
-		menu.classList.toggle( 'primary-menu-items-open' );
+		let body = document.querySelector('body');
 
-		let body = document.querySelector( 'body' );
-
-		body.classList.toggle( 'tablet-menu-open' );
+		body.classList.toggle('tablet-menu-open');
 
 	} // toggleMenu()
 
@@ -213,12 +209,13 @@
 	 * Removes the focus class from each sibling link.
 	 *
 	 * @param 		object 		event 		The event.
+	 * @return {[type]}        [description]
 	 */
-	function touchStart( event ) {
+	function touchStart(event) {
 
-		let target = getEventTarget( event );
+		let target = getEventTarget(event);
 
-		if ( ! target.matches( '.menu-item-has-children > a' ) && ! target.matches( '.page_item_has_children > a' ) ) { return; }
+		if (!target.matches('.menu-item-has-children > a') && !target.matches('.page_item_has_children > a')) { return; }
 
 		event.stopPropagation();
 		event.cancelBubble = true;
@@ -227,22 +224,21 @@
 
 		let menuItem = target.parentNode;
 
-		for ( let i = 0; i < menuItem.parentNode.children.length; ++i ) {
+		for (let i = 0; i < menuItem.parentNode.children.length; ++i) {
 
-			if ( menuItem === menuItem.parentNode.children[i] ) { continue; }
+			if (menuItem === menuItem.parentNode.children[i]) { continue; }
 
-			menuItem.parentNode.children[i].classList.remove( 'focus' );
+			menuItem.parentNode.children[i].classList.remove('focus');
 
 		}
 
-		menuItem.classList.toggle( 'focus' );
+		menuItem.classList.toggle('focus');
 
 	} // touchStart()
 
+	container.addEventListener('click', clickEvent);
+	container.addEventListener('focus', toggleFocus);
+	container.addEventListener('blur', toggleFocus);
+	container.addEventListener('touchstart', touchStart);
 
-	container.addEventListener( 'click', clickEvent );
-	container.addEventListener( 'focus', toggleFocus );
-	container.addEventListener( 'blur', toggleFocus );
-	container.addEventListener( 'touchStart', touchStart );
-
-} )();
+})();

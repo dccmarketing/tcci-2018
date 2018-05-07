@@ -24,14 +24,14 @@
 		color 			: $color__light;
 	}
 
-	@include tablet-portrait-up() {
+	@include tablet-portrait-up {
 		margin 		: 0 auto;
 		max-width 	: 200px;
 		z-index		: 9999;
 	}
 
 	@include laptop-up {
-		display 		: none;
+		display: none;
 	}
 
 	* {
@@ -42,12 +42,43 @@
 .menu-primary-submenu-toggle {
 	@include resetbutton();
 
-	cursor 		: pointer;
-	line-height	: 1.5;
-	width 		: 2em;
+	cursor 				: pointer;
+	height 				: 100%;
+	line-height			: 1.5;
+	min-height 			: 44px;
+	min-width 			: 44px;
+	position 			: absolute;
+	right 				: 0;
+	top 				: 0;
+	transition 			: all 0.4s ease;
+	width 				: 2em;
+
+	@include phone-down {
+		background-color 	: $color__orange;
+		border 				: 1px solid $color__orange;
+	}						
+
+	@include tablet-portrait-up {
+		
+	}
 
 	@include laptop-up {
 		display: none;
+	}
+
+	&:hover,
+	&:focus,
+	&:active,
+	&.focus {
+		background-color 	: $color__light;
+		border 				: 3px solid $color__orange;
+		color 				: $color__dark;
+
+		@include tablet-portrait-up {
+			background-color 	: $color__darkgray;
+			border 				: 3px solid $color__darkgray;
+			color 				: $color__light;
+		}
 	}
 }
 

@@ -2,14 +2,20 @@
  * Menu Item Links.
  */
 .primary-menu-item-link {
+	align-items 	: center;
 	color 			: $color__dark;
-	display			: block;
+	display			: flex;
 	font-weight 	: 700;
 	line-height 	: 1;
-	padding 		: 0.5em 1em;
+	position 		: relative;
 	text-align 		: center;
 	text-decoration	: none;
 	text-transform 	: uppercase;
+
+	@include tablet-down {
+		min-height: 44px;
+		min-width : 44px;
+	}
 
 	@include laptop-up() {
 		background-color: transparent;
@@ -28,19 +34,6 @@
 	// }
 }
 
-.primary-menu-item-link-1 { // 2nd-level menu item link, first submenu
-	@include phone-down {
-		padding-left: 2em;
-	}
-}
-
-.primary-menu-item-link-2{ // 3rd-level menu item link, second submenu
-	@include phone-down {
-		//border-left : none;
-		padding-left: 3em;
-	}
-}
-
 .primary-menu-item-link-0-first {
 	// @include laptop-up {
 	// 	border-left		: none;
@@ -52,4 +45,26 @@
 	// @include laptop-up {
 	// 	padding-right: 0;
 	// }
+}
+
+.primary-menu-item-link-0 {
+	padding 		: 0.5em 1em;
+}
+
+
+.primary-menu-item-link-1{ // 2nd-level menu & all links below
+	padding 	: 0.5em 2em;
+	color 		: $color__light;
+
+	@include tablet-portrait-up {
+		padding 	: 0.5em 1em;
+		white-space : nowrap;
+	}
+}
+
+.primary-menu-item-link-2 {
+	@include phone-down {
+		border-left : none;
+		padding 	: 0.5em 3em;
+	}
 }

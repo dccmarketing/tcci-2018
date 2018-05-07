@@ -9,10 +9,14 @@
 }
 
 .current-primary-menu-item-link {
-	color 		: #e67f22;
+	color 		: $color__orange;
 	font-weight	: 700;
 
 	&:visited {
-		color: #e67f22;
+		color: $color__orange;
+	}
+
+	@include tablet-to-laptop {
+		background-color: $color__light;
 	}
 }
