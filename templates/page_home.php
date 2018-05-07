@@ -101,23 +101,24 @@ get_header();
 		<section class="home-innovation clear">
 			<div class="home-innovation-wrap"><?php
 
-				if ( ! empty( $fields['innovation_content'] ) ) {
-
-					?><div class="home-innovation-description"><?php
-
-						echo apply_filters( 'the_content', $fields['innovation_content'] );
-
-					?></div><?php
-
-				}
-
 				if ( ! empty( $fields['innovation_product'] ) && is_object( $fields['innovation_product'] ) ) :
 
 					$media_dir = wp_upload_dir();
 					$images = tcci_get_featured_images( $fields['innovation_product']->ID );
 
-					?><img class="home-innovation-image" src="<?php echo esc_url( $media_dir['baseurl'] ); ?>/2018/03/innovation-spotlight-header.png" />
-					<div class="home-innovation-content">
+					?><img class="home-innovation-image" src="<?php echo esc_url( $media_dir['baseurl'] ); ?>/2018/03/innovation-spotlight-header.png" /><?php
+					
+					if ( ! empty( $fields['innovation_content'] ) ) {
+
+						?><div class="home-innovation-description"><?php
+
+							echo apply_filters( 'the_content', $fields['innovation_content'] );
+
+						?></div><?php
+
+					}
+					
+					?><div class="home-innovation-content">
 						<div>
 							<img class="home-innovation-image" src="<?php echo esc_url( $images['sizes']['large']['url'] ); ?>" />
 						</div>
