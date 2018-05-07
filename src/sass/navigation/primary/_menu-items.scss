@@ -33,15 +33,40 @@
 	@include phone-down {
 		border-bottom 	: 3px solid $color__orange;
 	}
+
+	@include tablet-to-laptop {
+		border-bottom 	: 3px solid $color__darkgray;
+	}
 }
 
 .primary-menu-item-0 {
-	@include laptop-up() {
+	transition: $trans__default;
+
+	@include laptop-up {
 		align-items	: center;
 		display 	: flex;
 
 		&:not(:last-child) {
 			border-right: 1px solid orange;
+		}
+	}
+}
+
+.primary-menu-item-0-has-children {
+	@include laptop-up {
+		> a {
+			margin-right: 0.75em;
+
+			&:after {
+				border 				: 5px solid transparent;
+				border-bottom-width : 0;
+				border-top-color	: currentColor;
+				content 			: "";
+				height 				: 0;
+				position 			: absolute;
+				right 				: -0.25em;
+				width 				: 0;
+			}
 		}
 	}
 }
@@ -52,8 +77,8 @@
 
 	&:last-child { // Last child of the 2nd-level submenu and below.
 
-		@include phone-down {
-			padding-bottom: 0;
+		@include tablet-down {
+			margin-bottom: 0;
 		}
 	}
 
@@ -71,8 +96,25 @@
 
 		a {
 			@include laptop-up() {
-				color: $trans__orange;
+				color: $color__darkgray;
 			}
+		}
+	}
+}
+
+.primary-menu-item-1-has-children {
+	a {
+		margin-right: 0.75em;
+
+		&:after {
+			border 				: 5px solid transparent;
+			border-right-width	: 0;
+			border-left-color	: currentColor;
+			content 			: "";
+			height 				: 0;
+			position 			: absolute;
+			right 				: -0.25em;
+			width 				: 0;
 		}
 	}
 }

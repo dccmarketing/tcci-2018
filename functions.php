@@ -29,11 +29,6 @@ require get_stylesheet_directory() . '/inc/imagekit.php';
 require get_stylesheet_directory() . '/inc/themekit.php';
 
 /**
- * Load Main Menu Walker
- */
-require get_stylesheet_directory() . '/inc/main-menu-walker.php';
-
-/**
  * Load Autoloader
  */
 require get_stylesheet_directory() . '/inc/class-autoloader.php';
@@ -41,22 +36,21 @@ require get_stylesheet_directory() . '/inc/class-autoloader.php';
 /**
  * Create an instance of each class and load the hooks function.
  */
-$classes[] = 'Automattic';
-$classes[] = 'Customizer';
-$classes[] = 'Menukit';
-$classes[] = 'Metabox_Post_Format';
-$classes[] = 'Shortcode_Listmenu';
-$classes[] = 'Shortcode_Search';
-$classes[] = 'Now_Hiring';
-$classes[] = 'Themehooks';
-$classes[] = 'Utilities';
-$classes[] = 'WooCommerce';
+$classes[] = new TCCI_Automattic();
+$classes[] = new TCCI_Customizer();
+$classes[] = new TCCI_Menukit();
+$classes[] = new TCCI_Menu_Styles();
+$classes[] = new TCCI_Slushicons();
+$classes[] = new TCCI_Metabox_Post_Format();
+$classes[] = new TCCI_Shortcode_Listmenu();
+$classes[] = new TCCI_Shortcode_Search();
+$classes[] = new TCCI_Now_Hiring();
+$classes[] = new TCCI_Themehooks();
+$classes[] = new TCCI_Utilities();
+$classes[] = new TCCI_WooCommerce();
 
 foreach ( $classes as $class ) {
 
-	$class_name 	= 'TCCI_' . $class;
-	$class_obj 		= new $class_name();
-
-	add_action( 'after_setup_theme', array( $class_obj, 'hooks' ) );
+	add_action( 'after_setup_theme', array( $class, 'hooks' ) );
 
 }

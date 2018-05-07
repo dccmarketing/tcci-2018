@@ -11,6 +11,11 @@
 		margin 			: 0 auto;
 		max-width		: $size__max-width;
 	}
+
+	&.sub-menu {
+		flex-wrap 	: wrap;
+		top 		: 100%;
+	}
 }
 
 .primary-menu-items-closed {
@@ -22,33 +27,24 @@
 .primary-menu-items-0 { // the 1st-level menu
 	@include phone-down {
 		display: none;
-	}
 
-	&[aria-expanded="true"] {
-		display: block;
-	}
+		&[aria-expanded="true"] {
+			display: block;
+			padding : 0;
+		}
 
-	&[aria-expanded="false"] {
-
-		@include phone-down() {
+		&[aria-expanded="false"] {
 			display: none;
 		}
 	}
 
 	&[aria-expanded="true"] {
-		@include phone-down() {
-			display : block;
-			padding : 0;
-		}
-
 		.menu-main-menu-container {
 			@include adminbar-to-laptop() {
 				transform: translateX(0);
 			}
-
 		}
 	}
-
 
 	ul { // all the submenus
 
@@ -65,36 +61,38 @@
 	}
 }
 
+.primary-menu-items-1 { // 2nd-level menu, first submenu
+	display 	: block;
+	text-align 	: left;
 
-.primary-menu-items-1 { // 2nd-level menu
-	background-color: $color__med;
-	display			: inherit;
+	&:hover,
+	&.focus,
+	&:focus,
+	&:active {
 
-	a { // all the links under the 2nd-level menu
-		padding: 0.5em 2em;
-
-		@include laptop-up {
-			width: 200px;
+		> ul {
+			@include tablet-portrait-up {
+				left 	: 100%;
+				top 	: 0;
+			}
 		}
 
-		@include tablet-portrait-up() {
-			color 		: $color__light;
-			padding 	: 0.5em 1em;
-			white-space : nowrap;
+		a {
+			@include laptop-up() {
+				color: $color__darkgray;
+			}
 		}
 	}
+}
+
+.primary-menu-items-1 { // 2nd-level menu
+	background-color: $color__darkgray;
+	display			: inherit;
 }
 
 .primary-menu-items-2 {
 	@include tablet-portrait-up {
 		left: 100%;
 		top	: 0;
-	}
-
-	a {
-		@include phone-down() {
-			border-left : none;
-			padding 	: 0.5em 3em;
-		}
 	}
 }
