@@ -12,7 +12,7 @@
 
 	.page-content {
 		font-size 	: 1.5em;
-		line-height : 1;
+		line-height : 1.25;
 		overflow 	: auto;
 		padding 	: 1em;
 		width 		: 100%;
@@ -44,6 +44,11 @@
 	height 		: 100%;
 	object-fit	: cover;
 	width		: 100%;
+}
+
+.home-top-radius {
+	border-top-left-radius 	: 10px !important;
+	border-top-right-radius : 10px !important;
 }
 
 @import "pillars";

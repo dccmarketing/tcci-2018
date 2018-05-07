@@ -17,11 +17,11 @@
  * in multiuple files/locations. This simplifies everything and
  * more implicitly shows the styling.
  */
-@mixin homewrap() {
+@mixin homewrap( $maxvw: $size__max-home ) {
 	margin 		: 0 auto;
 	max-width 	: 90vw;
 
 	@include adminbar-up {
-		max-width: $size__max-home;
+		max-width: #{$maxvw}vw;
 	}
 }

@@ -6,11 +6,20 @@ Innovation
 }
 
 .home-innovation-wrap {
-	@include homewrap;
+	@include homewrap( 70 );
 }
 
 .home-innovation-image {
 	width: 100%;
+}
+
+.home-innovation-image-link {
+	display 		: block;
+	transition 		: $trans__default;
+
+	&:hover {
+		background-color: $color__orange;
+	}
 }
 
 .home-innovation-title-link {
@@ -18,14 +27,15 @@ Innovation
 }
 
 .home-innovation-content {
-	display: flex;
+	align-items 	: center;
+	display 		: flex;
 
 	@include phone-down {
 		flex-wrap: wrap;
 	}
 }
 
-.home-innovation-description {
+.home-innovation-product-description {
 
 	ul {
 		list-style: none;

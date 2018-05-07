@@ -55,6 +55,12 @@ Products
 }
 
 .home-product-link {
+	border 		: 3px solid $color__light;
 	display 	: block;
 	text-align	: center;
+	transition 	: $trans__default;
+
+	&:hover {
+		border-color: $color__orange;
+	}
 }

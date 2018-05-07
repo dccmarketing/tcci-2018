@@ -21,7 +21,7 @@ Pillars
 	display 				: flex;
 	justify-content 		: space-between;
 	margin 					: 0 auto;
-	max-width 				: $size__max-home;
+	max-width 				: #{$size__max-home}vw;
 
 	@include mobile-admin-down() {
 		flex-direction 			: column;
@@ -56,5 +56,15 @@ Pillars
 
 	@include adminbar-up() {
 		max-width 		: 220px;
+	}
+}
+
+.home-pillar-link {
+	border 		: 3px solid $color__orange;
+	display 	: block;
+	transition 	: $trans__default;
+
+	&:hover {
+		border-color: $color__light;
 	}
 }
