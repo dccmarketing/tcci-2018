@@ -61,30 +61,6 @@
 	}
 }
 
-.primary-menu-items-1 { // 2nd-level menu, first submenu
-	display 	: block;
-	text-align 	: left;
-
-	&:hover,
-	&.focus,
-	&:focus,
-	&:active {
-
-		> ul {
-			@include tablet-portrait-up {
-				left 	: 100%;
-				top 	: 0;
-			}
-		}
-
-		a {
-			@include laptop-up() {
-				color: $color__darkgray;
-			}
-		}
-	}
-}
-
 .primary-menu-items-1 { // 2nd-level menu
 	background-color: $color__darkgray;
 	display			: inherit;

@@ -45,17 +45,24 @@
 	@include laptop-up {
 		align-items	: center;
 		display 	: flex;
+		padding 	: 0.5em 0;
 
-		&:not(:last-child) {
+		&:not(:last-child) > a {
 			border-right: 1px solid orange;
 		}
+	}
+
+	li { // all menu items below the first level
+		padding: 0.5em 0;
 	}
 }
 
 .primary-menu-item-0-has-children {
 	@include laptop-up {
+
 		> a {
 			margin-right: 0.75em;
+			padding-right: 2em;
 
 			&:after {
 				border 				: 5px solid transparent;
@@ -64,7 +71,7 @@
 				content 			: "";
 				height 				: 0;
 				position 			: absolute;
-				right 				: -0.25em;
+				right 				: 0.5em;
 				width 				: 0;
 			}
 		}

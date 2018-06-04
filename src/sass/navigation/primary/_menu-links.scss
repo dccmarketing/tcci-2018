@@ -28,33 +28,12 @@
 }
 
 .primary-menu-item-link-0 {
-	// @include laptop-up {
-	// 	border-left	: 1px solid $teal;
-	// 	padding 	: 0 1em;
-	// }
-}
-
-.primary-menu-item-link-0-first {
-	// @include laptop-up {
-	// 	border-left		: none;
-	// 	padding-left 	: 0;
-	// }
-}
-
-.primary-menu-item-link-0-last {
-	// @include laptop-up {
-	// 	padding-right: 0;
-	// }
-}
-
-.primary-menu-item-link-0 {
 	padding 		: 0.5em 1em;
 }
 
 
 .primary-menu-item-link-1{ // 2nd-level menu & all links below
 	padding 	: 0.5em 2em;
-	color 		: $color__light;
 
 	@include tablet-portrait-up {
 		padding 	: 0.5em 1em;
