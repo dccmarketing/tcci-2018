@@ -42,6 +42,8 @@ class TCCI_WooCommerce {
 		add_action( 'woocommerce_before_shop_loop', 						array( $this, 'woocommerce_result_count' ), 20 );
 		add_action( 'woocommerce_before_shop_loop', 						array( $this, 'woocommerce_catalog_ordering' ), 30 );
 		add_action( 'woocommerce_after_shop_loop', 							array( $this, 'add_form_to_tag_archive' ), 10, 1 );
+		add_action( 'woocommerce_before_shop_loop', 						array( $this, 'products_heading' ), 5 );
+		add_action( 'woocommerce_after_shop_loop', 							array( $this, 'list_services' ), 5 );
 
 		add_filter( 'loop_shop_columns', 									array( $this, 'product_columns' ), 10, 1 );
 		add_filter( 'get_the_archive_title', 								array( $this, 'remove_market_from_archive_title' ) );
@@ -148,6 +150,49 @@ class TCCI_WooCommerce {
 		return $tabs;
 
 	} // extra_product_tabs()
+
+	/**
+	 * Displays the services after the products listings on the WooCommerce products page.
+	 * 
+	 * @hooked 		woocommerce_after_shop_loop
+	 */
+	public function list_services() {
+
+		$fields = get_fields( get_option( 'woocommerce_shop_page_id' ) );
+
+		$output = '';
+
+		if ( empty( $fields['services'] ) ) { return; }
+
+		$output .= '<h2>Services</h2>';
+		$output .= '<ul class="services-list products columns-4">';
+
+		foreach ( $fields['services'] as $service ) :
+
+			$output .= '<li class="service product-category product">';
+			$output .= '<a class="service-link" href="' . esc_url( $service['url'] ) . '">';
+			$output .= '<img class="service-image" src="' . esc_url( $service['image'] ) . '" />';
+			$output .= '<h3 class="woocommerce-loop-category__title">';
+			$output .= esc_html( $service['name'] );
+			$output .= '</h3></a>';
+			$output .= '</li>';
+
+		endforeach;
+
+		echo $output;
+
+	} // list_services()
+
+	/**
+	 * Displays the "Products" heading before the product listings on the WooCommerce products page.
+	 * 
+	 * @hooked 		woocommerce_before_shop_loop
+	 */
+	public function products_heading() {
+
+		echo '<h2>Products</h2>';
+
+	} // products_heading()
 
 	/**
 	 * Changes the quantity of product columns on category pages.

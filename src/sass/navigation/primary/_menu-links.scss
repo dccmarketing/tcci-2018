@@ -25,6 +25,11 @@
 	&:focus {
 		outline-color: $color__med;
 	}
+
+	.menu-heading & {
+		color: $color__light;
+		font-weight: normal;
+	}
 }
 
 .primary-menu-item-link-0 {

@@ -126,3 +126,11 @@
 		}
 	}
 }
+
+.menu-heading {
+	border-bottom: 1px solid $color__light;
+
+	&:not(:first-child) {
+		margin-top: 0.5em;
+	}
+}
