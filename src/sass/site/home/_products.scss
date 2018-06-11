@@ -7,14 +7,7 @@ Products
 
 .home-products-wrap {
 	@include homewrap;
-	
-	@include tablet-portrait-up() {
-		border 					: 3px solid $color__orange;
-		border-top-left-radius	: 20px;
-		border-top-right-radius	: 20px;
-		padding 				: 1em;
-		padding-top 			: 0;
-	}
+	@include homeborders;
 }
 
 .home-products-title {

@@ -1,0 +1,236 @@
+.page-template-demandbase-landing .breadcrumbs{
+	display: none;
+}
+
+.page-template-demandbase-landing a {
+	display: block;
+	text-decoration: none;
+}
+
+.container-message{
+	position: relative; 
+	height: auto; 
+	width: 100%; 
+	background-color: $color__darkgray;
+}
+
+.text-message{
+	position: absolute; 
+	top: 50%; 
+	left: 35%;
+	transform: translate(-50%, -50%);
+	text-align: left;
+}
+
+.image-overlay{
+	position: absolute; 
+	background-color: $trans__dark-half; 
+	top: 0; 
+	bottom: 0; 
+	left: 0; 
+	right: 0; 
+	height: 100%; 
+	width: 100%; 
+	opacity: 1.0; 
+	transition: .5s ease;
+}
+
+.orange-section-landing{
+	@include landingsection;
+}
+
+.landing-content{
+	color: $color__light; 
+	text-align: center; 
+	font-size: 1.3em; 
+	font-weight: bold; 
+	display:block; 
+	width: 80%; 
+	margin: 0 auto;
+}
+
+.landing-title {
+	color: $color__light; 
+	font-size: 1.5em;
+
+	@include tablet-portrait-up {
+		font-size: 3.0em;
+	}
+}
+
+.white-section-landing{
+	@include landingsection($color__light);
+}
+
+.description{
+	color: $color__dark;
+}
+
+.orange-section-header {
+	color: $color__light; 
+}
+
+.white-section-header{
+	color: $color__orange; 
+}
+
+.landing-image {
+	width: 100%; 
+
+	@include landing-down {
+		height: 200px !important;
+	}
+}
+
+.button-padding{
+	padding-bottom:20px;
+}
+
+.orange-bar {
+	width: 100%; 
+	height: 100%; 
+	background-color: $color__orange;
+}
+
+.section-landing-margin {
+	display: block; 
+	width: 75%; 
+	margin: 0 auto 30px;
+
+	@include adminbar-up {
+		width: 60%; 
+	}
+}
+
+.ending-content-style {
+	color: $color__light; 
+	text-align: center !important;
+}
+
+.landing-button {
+	padding-bottom:10px;
+}
+
+.page-template-electric-compressors .breadcrumbs{
+	display:none;
+}
+
+.landing-margin {
+	display: block; 
+	width: 100%; 
+	margin: 0 auto 30px;
+	padding-top: 10px;
+
+	@include adminbar-up {
+		width: 65%; 
+		padding-top: 30px;
+	}
+}
+
+.row {
+	display: block; 
+	flex-wrap: wrap; 
+	padding: 0;
+
+	@include adminbar-up {
+		display: flex; 
+		padding: 0 4px;
+	}
+} 
+
+.column {
+	flex: 100%; 
+	padding: 0;
+
+	@include adminbar-up {
+		flex: 50%;
+		padding: 0 4px;
+	}
+}
+
+.column2 {
+	flex: 50%; 
+	padding: 0 4px;
+}
+
+.top-line {
+	font-size: 2.2em; 
+	margin-bottom: 0em !important; 
+	padding-top: 0;
+	padding-right: 10px; 
+	padding-left: 10px;
+
+	@include adminbar-up {
+		padding-top: 90px;
+	}
+}
+
+.second-line {
+	font-size: 2.2em; 
+	margin-bottom: 0.3em !important;
+	padding-right: 10px; 
+	padding-left: 10px;
+}
+	
+.orange-line {
+	color: $color__orange; 
+	margin-bottom: 0.3em !important; 
+	font-size: 1.7em;
+	padding-right: 10px; 
+	padding-left: 10px;
+}
+	
+.last-line {
+	padding-right: 10px; 
+	padding-left: 10px;
+}
+	
+.landing-margin2 {
+	display: block; 
+	width: 65%; 
+	margin-left: auto; 
+	margin-right: auto; 
+	margin-bottom: 30px; 
+	padding-top: 30px;
+}
+
+.top-line2 {
+	font-size: 2.2em; 
+	margin-bottom: 0em !important; 
+	padding-top: 10px;
+	padding-right: 10px; 
+	padding-left: 10px;
+}
+
+.subtext{
+	color: $color__med !important;
+
+	@include mobile-admin-down {
+		display: none;
+	}
+}
+
+.samples {
+	text-align:center; 
+	color: $color__dark; 
+	padding-right: 5px; 
+	padding-left: 5px; 
+	font-size: 1.2em; 
+	padding-top: 35px;
+}
+
+.compressor-title {
+	color: $color__darkgray; 
+	font-size: 2em;
+}
+
+.r-button-marg {
+	display: block; 
+	margin: 0 auto; 
+	max-width: 264px;
+}
+
+.r-button-padding {
+	padding-top: 30px; 
+	padding-bottom: 30px;
+}

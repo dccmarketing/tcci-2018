@@ -18,17 +18,6 @@ class TCCI_WooCommerce {
 	 */
 	public function hooks() {
 
-		add_action( 'woocommerce_before_main_content', 						array( $this, 'wrapper_begin' ) );
-		add_action( 'woocommerce_after_main_content', 						array( $this, 'wrapper_end' ) );
-		add_filter( 'get_the_archive_title', 								array( $this, 'remove_market_from_archive_title' ) );
-		add_filter( 'single_product_archive_thumbnail_size', 				array( $this, 'change_shop_thumbnail_size' ) );
-		add_filter( 'woocommerce_subcategory_count_html', 					array( $this, 'return_nothing' ) );
-		add_filter( 'woocommerce_product_tabs', 							array( $this, 'rename_tabs' ), 98 );
-		add_filter( 'woocommerce_product_tabs', 							array( $this, 'extra_product_tabs' ), 99 );
-		add_action( 'woocommerce_after_single_product', 					array( $this, 'request_a_drawing_form' ), 30 );
-		add_filter( 'woocommerce_product_additional_information_heading', 	array( $this, 'return_nothing' ) );
-		add_filter( 'woocommerce_product_description_heading', 				array( $this, 'return_nothing' ) );
-		add_action( 'save_post', 											array( $this, 'save_woocommerce_attr_to_meta' ), 10, 2 );
 		remove_action( 'woocommerce_after_shop_loop_item', 					'woocommerce_template_loop_add_to_cart', 10 );
 		remove_action( 'woocommerce_single_product_summary', 				'woocommerce_template_single_title', 5 );
 		remove_action( 'woocommerce_single_product_summary', 				'woocommerce_template_single_rating', 10 );
@@ -38,15 +27,30 @@ class TCCI_WooCommerce {
 		remove_action( 'woocommerce_after_single_product_summary', 			'woocommerce_output_product_data_tabs', 10 );
 		remove_action( 'woocommerce_after_single_product_summary', 			'woocommerce_output_related_products', 20 );
 		remove_action( 'woocommerce_single_variation', 						'woocommerce_single_variation_add_to_cart_button', 20 );
+		remove_action( 'woocommerce_before_shop_loop', 						'woocommerce_result_count', 20 );
+		remove_action( 'woocommerce_before_shop_loop', 						'woocommerce_catalog_ordering', 30 );
+
+		add_action( 'woocommerce_after_shop_loop_item', 					array( $this, 'add_cc_to_product_listing' ), 10, 1 );
+		add_action( 'woocommerce_after_subcategory', 						array( $this, 'add_cc_range' ), 10, 1 );
+		add_action( 'woocommerce_before_main_content', 						array( $this, 'wrapper_begin' ) );
+		add_action( 'woocommerce_after_main_content', 						array( $this, 'wrapper_end' ) );
+		add_action( 'woocommerce_after_single_product', 					array( $this, 'request_a_drawing_form' ), 30 );
+		add_action( 'save_post', 											array( $this, 'save_woocommerce_attr_to_meta' ), 10, 2 );
 		add_action( 'woocommerce_before_single_product', 					'woocommerce_template_single_title' );
 		add_action( 'woocommerce_single_product_summary', 					'woocommerce_output_product_data_tabs', 4 );
 		add_action( 'pre_get_posts', 										array( $this, 'show_all_market_products' ) );
-		remove_action( 'woocommerce_before_shop_loop', 						'woocommerce_result_count', 20 );
 		add_action( 'woocommerce_before_shop_loop', 						array( $this, 'woocommerce_result_count' ), 20 );
-		remove_action( 'woocommerce_before_shop_loop', 						'woocommerce_catalog_ordering', 30 );
 		add_action( 'woocommerce_before_shop_loop', 						array( $this, 'woocommerce_catalog_ordering' ), 30 );
 		add_action( 'woocommerce_after_shop_loop', 							array( $this, 'add_form_to_tag_archive' ), 10, 1 );
+
 		add_filter( 'loop_shop_columns', 									array( $this, 'product_columns' ), 10, 1 );
+		add_filter( 'get_the_archive_title', 								array( $this, 'remove_market_from_archive_title' ) );
+		add_filter( 'single_product_archive_thumbnail_size', 				array( $this, 'change_shop_thumbnail_size' ) );
+		add_filter( 'woocommerce_subcategory_count_html', 					array( $this, 'return_nothing' ) );
+		add_filter( 'woocommerce_product_tabs', 							array( $this, 'rename_tabs' ), 98 );
+		add_filter( 'woocommerce_product_tabs', 							array( $this, 'extra_product_tabs' ), 99 );
+		add_filter( 'woocommerce_product_additional_information_heading', 	array( $this, 'return_nothing' ) );
+		add_filter( 'woocommerce_product_description_heading', 				array( $this, 'return_nothing' ) );
 
 		/**
 		 * Allows HTML in term (category, term) descriptions
@@ -60,7 +64,35 @@ class TCCI_WooCommerce {
 		}
 
 	} // hooks()
-	
+
+	/**
+	 * Displays the CC Range custom field just after the product category title.
+	 */
+	public function add_cc_range( $category ) {
+
+		$range = get_field( 'cc_range', 'product_cat_' . $category->term_id );
+
+		if ( empty( $range ) ) { return; }
+
+		echo '<p class="cc-range">' . esc_html( $range ) . '</p>';
+
+	} // add_cc_range()
+
+	/**
+	 * Displays the cubic centimeters attribute value just after the product title.
+	 */
+	public function add_cc_to_product_listing() {
+
+		global $product;
+
+		$cc = $product->get_attribute( 'pa_cubic-centimeters' );
+
+		if ( empty( $cc ) ) { return; }
+
+		echo '<p class="cc-range">' . esc_html( $cc ) . ' cc</p>';
+
+	} // add_cc_to_product_listing()
+
 	/**
 	 * Adds the Request a Drawing Formidable form to the bottom of the QP40 tag archive page.
 	 */
@@ -99,7 +131,6 @@ class TCCI_WooCommerce {
 	 */
 	function extra_product_tabs( $tabs ) {
 
-		$resources = get_field( 'downloads_files' );
 		$title = get_field( 'downloads_title' );
 
 		if ( empty( $title ) ) {

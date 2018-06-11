@@ -1,3 +1,7 @@
+@mixin landing-down {
+	@media (max-width: 399px) { @content; }
+}
+
 @mixin phone-down {
 	@media (max-width: 599px) { @content; }
 }

@@ -18,7 +18,7 @@ class TCCI_Menukit {
 	 */
 	public function hooks() {
 
-		//add_filter( 'wp_nav_menu_items', 					array( $this, 'add_search_to_menu' ), 10, 2 );
+		add_filter( 'wp_nav_menu_items', 					array( $this, 'add_search_to_menu' ), 10, 2 );
 		add_filter( 'nav_menu_item_title', 					array( $this, 'submenu_toggle' ), 10, 4 );
 		add_filter( 'wp_nav_menu_container_allowedtags', 	array( $this, 'allow_section_tags_as_containers' ), 10, 1 );
 

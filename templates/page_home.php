@@ -15,15 +15,29 @@ get_header();
 	<main id="main" role="main">
 		<div class="home-video-container"><?php
 
-			if ( ! empty( $fields['cta_logo'] ) && ! empty( $fields['cta_link'] ) && ! empty( $fields['cta_text'] ) ) :
+			if ( ! empty( $fields['cta_logo'] ) && ! empty( $fields['cta_buttons'] ) ) :
 
 				?><div class="home-call-to-action">
 					<div class="home-cta-wrap">
-						<img class="home-cta-logo" src="<?php echo esc_url( $fields['cta_logo'] ); ?>" />
-						<p>
-							<a class="home-cta-link home-top-radius" href="<?php echo esc_url( $fields['cta_link'] ); ?>"><?php echo esc_html( $fields['cta_text'] ); ?></a>
-						</p>
-					</div>
+						<img class="home-cta-logo" src="<?php echo esc_url( $fields['cta_logo'] ); ?>" /><?php
+						
+							if ( 1 <= count( $fields['cta_buttons'] ) ) :
+
+								?><ul class="home-cta-buttons"><?php
+
+									foreach ( $fields['cta_buttons'] as $button ) :
+
+										?><li class="home-cta-button">
+											<a class="home-cta-link home-top-radius" href="<?php echo esc_url( $button['link'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+										</li><?php
+
+									endforeach;
+
+								?></ul><?php
+
+							endif;
+						
+					?></div>
 				</div><?php
 
 			endif;

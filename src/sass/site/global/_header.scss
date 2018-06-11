@@ -7,8 +7,6 @@
 	justify-content : center;
 	overflow 		: auto;
 
-
-
 	@include phone-down() {
 		flex-wrap: wrap;
 	}
@@ -26,10 +24,12 @@
 
 		.home.admin-bar & {
 			top: $size__wp-admin-bar-1;
+		}
+	}
 
-			@media only screen and (min-width: 784px) {
-				top: $size__wp-admin-bar-2;
-			}
+	@include adminbar-up {
+		.home.admin-bar & {
+			top: $size__wp-admin-bar-2;
 		}
 	}
 }

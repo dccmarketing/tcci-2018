@@ -25,3 +25,20 @@
 		max-width: #{$maxvw}vw;
 	}
 }
+
+@mixin homeborders($color: $color__orange) {
+	@include tablet-portrait-up() {
+		border 					: 3px solid #{$color};
+		border-top-left-radius	: 20px;
+		border-top-right-radius	: 20px;
+		padding 				: 1em;
+		padding-top 			: 0;
+	}
+}
+
+@mixin landingsection($bg-color: $color__orange) {
+	width: 100%; 
+	height: 100%; 
+	background-color: #{$bg-color}; 
+	display: block;
+}

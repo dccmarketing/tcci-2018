@@ -11,7 +11,7 @@ $trans__light-mostly: rgba(255, 255, 255, 0.8);
 $trans__light-half 	: rgba(255, 255, 255, 0.5);
 
 $trans__dark-mostly : rgba(0, 0, 0, 0.8);
-$trans__dark-half 	: rgba(0, 0, 0, 0.05);
+$trans__dark-half 	: rgba(0, 0, 0, 0.5);
 $trans__dark-quarter: rgba(0, 0, 0, 0.25);
 
 $lighten__med 		: lighten( $color__med, 10% );
