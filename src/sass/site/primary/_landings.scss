@@ -4,7 +4,6 @@
 
 .page-template-demandbase-landing a {
 	display: block;
-	text-decoration: none;
 }
 
 .container-message{
@@ -35,10 +34,6 @@
 	transition: .5s ease;
 }
 
-.orange-section-landing{
-	@include landingsection;
-}
-
 .landing-content{
 	color: $color__light; 
 	text-align: center; 
@@ -58,19 +53,46 @@
 	}
 }
 
-.white-section-landing{
-	@include landingsection($color__light);
+.landing-section {
+	display: block;
+	height: 100%; 
+	padding: 1em;
+	width: 100%; 
+}
+
+.landing-section-white {
+	background-color: $color__light; 
+	color: $color__orange;
+}
+
+.landing-section-white .section-header-link,
+.section-header-white {
+	color: $color__orange;
+}
+
+.landing-section-orange {
+	background-color: $color__orange; 
+	color: $color__light;
+}
+
+.landing-section-orange .section-header-link,
+.section-header-orange {
+	color: $color__light;
+}
+
+.entry-content-page p {
+	margin-bottom: 0;
 }
 
 .description{
 	color: $color__dark;
 }
 
-.orange-section-header {
-	color: $color__light; 
+.section-header {
+	font-size: 2em;	
 }
 
-.white-section-header{
+.section-header-white {
 	color: $color__orange; 
 }
 
@@ -84,12 +106,6 @@
 
 .button-padding{
 	padding-bottom:20px;
-}
-
-.orange-bar {
-	width: 100%; 
-	height: 100%; 
-	background-color: $color__orange;
 }
 
 .section-landing-margin {
@@ -211,7 +227,7 @@
 }
 
 .samples {
-	text-align:center; 
+	text-align: center; 
 	color: $color__dark; 
 	padding-right: 5px; 
 	padding-left: 5px; 
@@ -233,4 +249,54 @@
 .r-button-padding {
 	padding-top: 30px; 
 	padding-bottom: 30px;
+}
+
+
+
+.landing-page-product-links {
+	@include resetlist;
+	display: flex;
+}
+
+.landing-page-product-link-item {
+	margin: 0 0.5em;
+}
+
+.btn {
+	border: 1px solid;
+	border-radius: 5px;
+	display: block;
+	max-width: 225px;
+	padding: 0.25em 1em;
+	text-align: center;
+	text-decoration: none;
+	transition: 0.4s ease;
+}
+
+.btn-orange,
+.landing-section-white .landing-page-product-link {
+	background-color: $color__orange;
+	border-color: $color__orange;
+	color: $color__light;
+
+	&:hover {
+		background-color: $color__light;
+		color: $color__dark;
+		text-decoration: underline;
+	}
+}
+
+.landing-page-product-link {
+	
+	.landing-section-orange & {
+		background-color: $color__light;
+		border-color: $color__light;
+		color: $color__dark;
+
+		&:hover {
+			background-color: $color__orange;
+			color: $color__light;
+			text-decoration: underline;
+		}
+	}
 }

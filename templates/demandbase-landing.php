@@ -7,9 +7,9 @@
  * @package TCCI
  */
 
-get_header();
-
 $fields = get_fields( get_the_ID() );
+
+get_header();
 
 /**
  * The tcci_while_before action hook
@@ -19,7 +19,7 @@ do_action( 'tcci_while_before' );
 ?><div id="primary" class="full-width">
 	<main id="main" role="main">
 		<div class="container-message">
-			<img src="<?php echo esc_url($fields['featured_image']); ?>" class="landing-image">
+			<img src="<?php echo esc_url( get_the_post_thumbnail_url( get_the_ID() ) );; ?>" class="landing-image">
 			<div class="image-overlay">
 				<div class="text-message">
 					<h1 class="landing-title"><?php
@@ -32,14 +32,11 @@ do_action( 'tcci_while_before' );
 						echo apply_filters( 'the_content', $fields['landing_subtext'] );
 
 					?></div>
-					<a href="#request">
-						<img src="/wp-content/uploads/2018/06/request3.png" class="button-padding">
-					</a>
+					<a class="btn btn-orange" href="#request">Request a Drawing</a>
 				</div>
 			</div>
 		</div>
-		<div class="orange-bar">
-			<br>
+		<section class="landing-section landing-section-orange">
 			<div id="products" class="landing-content"><?php
 
 				// TO SHOW THE PAGE CONTENTS
@@ -56,139 +53,155 @@ do_action( 'tcci_while_before' );
 				wp_reset_query(); //resetting the page query
 		
 			?></div>
-		</div>
-		<div class="white-section-landing">
+		</section>
+		<section class="landing-section landing-section-white">
 			<div class="section-landing-margin">
 				<div class="row"><?php
 
 					if( have_rows('product_1') ): 
-						
-						while( have_rows('product_1') ): the_row(); 
 
-							?><div class="column2">
-								<a href="<?php echo esc_attr( $fields['product_1'][0]['product_1_link'] ); ?>">
-									<img src="<?php echo esc_url( $fields['product_1'][0]['featured_product_1']['url'] ); ?>" width="400" height="400"/>
-								</a>
-							</div>
-							<div class="column2">
-								<a href="<?php echo $fields['product_1'][0]['featured_product_1']; ?>">
-									<h1 class="white-section-header"><?php 
-									
-										echo esc_html( $fields['product_1'][0]['product_1_name'] ); 
-										
-									?></h1>
-								</a>
-								<div class="description"><?php 
+						?><div class="column2">
+							<a href="<?php echo esc_attr( $fields['product_1'][0]['product_1_link'] ); ?>">
+								<img src="<?php echo esc_url( $fields['product_1'][0]['featured_product_1'] ); ?>" width="400" height="400"/>
+							</a>
+						</div>
+						<div class="column2">
+							<h2 class="section-header section-header-white">
+								<a class="section-header-link" href="<?php echo esc_attr( $fields['product_1'][0]['featured_product_1'] ); ?>"><?php 
 								
-									echo apply_filters( 'the_content', $fields['product_1'][0]['product_1_description'] ); 
+									echo esc_html( $fields['product_1'][0]['product_1_name'] ); 
 									
-								?></div>
-								<a href="<?php echo esc_url( $fields['product_1'][0]['product_1_link'] ); ?>">
-									<img src="<?php echo esc_url( $fields['product_1'][0]['product_1_button'] ); ?>" class="landing-button">
-								</a>
-								<a href="<?php echo esc_url( $fields['product_1'][0]['product_1_second'] ); ?>">
-									<img src="<?php echo esc_url( $fields['product_1'][0]['product_1_button_second'] ); ?>" class="landing-button">
-								</a>
-							</div><?php 
-					
-						endwhile;
-
+								?></a>	
+							</h2>
+							<div class="description"><?php 
+							
+								echo apply_filters( 'the_content', $fields['product_1'][0]['product_1_description'] ); 
+								
+							?></div>
+							<ul class="landing-page-product-links">
+								<li class=" landing-page-product-link-item">
+									<a class="btn landing-page-product-link" href="<?php echo esc_url( $fields['product_1'][0]['product_1_link'] ); ?>"><?php 
+									
+										echo esc_html( $fields['product_1'][0]['product_1_button_1_text'] ); 
+										
+									?></a>
+								</li>
+								<li class=" landing-page-product-link-item">
+									<a class="btn landing-page-product-link" href="<?php echo esc_url( $fields['product_1'][0]['product_1_second'] ); ?>"><?php 
+									
+										echo esc_html( $fields['product_1'][0]['product_1_button_2_text'] ); 
+										
+									?></a>
+								</li>
+							</ul>
+						</div><?php 
+				
 					endif;
 
 				?></div>
 			</div>
 		</div>
-		<div class="orange-section-landing">
+		<div class="landing-section landing-section-orange">
 			<div class="section-landing-margin">
 				<div class="row"><?php 
 				
 					if( have_rows('product_2') ): 
 					
-						while( have_rows('product_2') ): the_row();
-
-							?><div class="column2">
-								<a href="<?php echo esc_url( $fields['product_2'][0]['product_2_link'] ); ?>">
-									<img src="<?php echo esc_url( $fields['product_2'][0]['featured_product_2']['url'] ); ?>" width="400" height="400"/>
-								</a>
-							</div>
-							<div class="column2">
-								<a href="<?php echo esc_url( $fields['product_2'][0]['product_2_link'] ); ?>">
-									<h1 class="orange-section-header"><?php 
-									
-										echo esc_html( $fields['product_2'][0]['product_2_name'] ); 
-										
-									?></h1>
-								</a>
-								<div class="description"><?php 
+						?><div class="column2">
+							<a href="<?php echo esc_url( $fields['product_2'][0]['product_2_link'] ); ?>">
+								<img src="<?php echo esc_url( $fields['product_2'][0]['featured_product_2'] ); ?>" width="400" height="400"/>
+							</a>
+						</div>
+						<div class="column2">
+							<a href="<?php echo esc_url( $fields['product_2'][0]['product_2_link'] ); ?>">
+								<h2 class="section-header section-header-orange"><?php 
 								
-									echo apply_filters( 'the_content', $fields['product_2'][0]['product_2_description'] ); 
+									echo esc_html( $fields['product_2'][0]['product_2_name'] ); 
 									
-								?></div>
-								<a href="<?php echo esc_url( $fields['product_2'][0]['product_2_link'] ); ?>">
-									<img src="<?php echo esc_url( $fields['product_2'][0]['product_2_button'] ); ?>" class="landing-button">
-								</a>
-								<a href="<?php echo esc_url( $fields['product_2'][0]['product_2_second'] ); ?>">
-									<img src="<?php echo esc_url( $fields['product_2'][0]['product_2_button_second'] ); ?>" class="landing-button">
-								</a>
-							</div><?php 
-						
-						endwhile; 
+								?></h2>
+							</a>
+							<div class="description"><?php 
+							
+								echo apply_filters( 'the_content', $fields['product_2'][0]['product_2_description'] ); 
+								
+							?></div>
+							<ul class="landing-page-product-links">
+								<li class=" landing-page-product-link-item">
+									<a class="btn landing-page-product-link" href="<?php echo esc_url( $fields['product_2'][0]['product_2_link'] ); ?>"><?php 
+									
+										echo esc_html( $fields['product_2'][0]['product_2_button_1_text'] ); 
+										
+									?></a>
+								</li>
+								<li class=" landing-page-product-link-item">
+									<a class="btn landing-page-product-link" href="<?php echo esc_url( $fields['product_2'][0]['product_2_second'] ); ?>"><?php 
+									
+										echo esc_html( $fields['product_2'][0]['product_2_button_2_text'] ); 
+										
+									?></a>
+								</li>
+							</ul>
+						</div><?php 
 						
 					endif;
 				
 				?></div>
 			</div>
 		</div>
-		<div class="white-section-landing">
+		<div class="landing-section landing-section-white">
 			<div class="section-landing-margin">
 				<div class="row"><?php 
 				
 					if( have_rows('product_3') ):
-					
-						while( have_rows('product_3') ): the_row();
 
-							?><div class="column2">
-								<a href="<?php echo esc_url( $fields['product_3'][0]['product_3_link'] ); ?>">
-									<img src="<?php echo esc_url( $fields['product_3'][0]['featured_product_3']['url'] ); ?>" width="400" height="400" />
-								</a>
-							</div>
-							<div class="column2">
-								<a href="<?php echo esc_url( $fields['product_3'][0]['product_3_link'] ); ?>">
-									<h1 class="white-section-header"><?php 
-									
-										echo esc_html( $fields['product_3'][0]['product_3_name'] ); 
-									
-									?></h1>
-								</a>
-								<div class="description"><?php 
+						?><div class="column2">
+							<a href="<?php echo esc_url( $fields['product_3'][0]['product_3_link'] ); ?>">
+								<img src="<?php echo esc_url( $fields['product_3'][0]['featured_product_3'] ); ?>" width="400" height="400" />
+							</a>
+						</div>
+						<div class="column2">
+							<a href="<?php echo esc_url( $fields['product_3'][0]['product_3_link'] ); ?>">
+								<h2 class="section-header section-header-white"><?php 
 								
-									echo apply_filters( 'the_content', $fields['product_3'][0]['product_3_description'] ); 
+									echo esc_html( $fields['product_3'][0]['product_3_name'] ); 
+								
+								?></h2>
+							</a>
+							<div class="description"><?php 
+							
+								echo apply_filters( 'the_content', $fields['product_3'][0]['product_3_description'] ); 
+								
+							?></div>
+							<ul class="landing-page-product-links">
+								<li class=" landing-page-product-link-item">
+									<a class="btn landing-page-product-link" href="<?php echo esc_url( $fields['product_3'][0]['product_3_link'] ); ?>"><?php 
 									
-								?></div>
-								<a href="<?php echo esc_url( $fields['product_3'][0]['product_3_link'] ); ?>">
-									<img src="<?php echo esc_url( $fields['product_3'][0]['product_3_button'] ); ?>" class="landing-button">
-								</a>
-								<a href="<?php echo esc_url( $fields['product_3'][0]['product_3_second'] ); ?>">
-									<img src="<?php echo esc_url( $fields['product_3'][0]['product_3_button_second'] ); ?>" class="landing-button">
-								</a>
-							</div><?php 
+										echo esc_html( $fields['product_3'][0]['product_3_button_1_text'] ); 
+										
+									?></a>
+								</li>
+								<li class=" landing-page-product-link-item">
+									<a class="btn landing-page-product-link" href="<?php echo esc_url( $fields['product_3'][0]['product_3_second'] ); ?>"><?php 
+									
+										echo esc_html( $fields['product_3'][0]['product_3_button_2_text'] ); 
+										
+									?></a>
+								</li>
+							</ul>
+						</div><?php 
 					
-						endwhile;
-				
 					endif; 
 			
 				?></div>
 			</div>
 		</div>
-		<div id="request" class="orange-section-landing">
-			<br>
+		<section id="request" class="landing-section landing-section-orange">
 			<div class="ending-content-style"><?php 
 			
 				echo apply_filters( 'the_content', $fields['ending_content'] );
 				
 			?></div>
-			<br>
-		</div>
+		</section>
 	</main><!-- #main -->
 </div><!-- #primary --><?php
 

@@ -1,18 +1,27 @@
 .home-call-to-action {
+	align-items: center;
 	background-color: rgba(0,0,0,0.5);
-	bottom: 0;
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
+	display: flex;
+	justify-content: center;
+	padding: 1em 1em 0;
+
+	@include cta-up {
+		bottom: 0;
+		left: 0;
+		padding: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	@include tablet-portrait-up {
+		padding: 0;
+		padding-top: 93px; // the header height
+	}
 }
 
 .home-cta-wrap {
-	left: 50%;
-	position: absolute;
 	text-align: center;
-	top: 60%;
-	transform: translate(-50%,-50%);
 	z-index: 1;
 }
 
@@ -24,7 +33,9 @@
 .home-cta-link {
 	background-color: $color__orange;
 	color: $color__light;
+	display: block;
 	font-size: 1.25em;
+	margin-bottom: 1em;
 	padding: 0.35em;
 	text-decoration: none;
 	transition: $trans__default;
@@ -33,11 +44,17 @@
 		background-color: $color__light;
 		color: $color__orange;
 	}
+
+	@include cta-up {
+		margin-bottom: 0;
+	}
 }
 
 .home-cta-buttons {
 	@include resetlist;
-	display: flex;	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;	
 }
 
 .home-cta-button {
