@@ -67,7 +67,7 @@ do_action( 'tcci_while_before' );
 						</div>
 						<div class="column2">
 							<h2 class="section-header section-header-white">
-								<a class="section-header-link" href="<?php echo esc_attr( $fields['product_1'][0]['featured_product_1'] ); ?>"><?php 
+								<a class="section-header-link" href="<?php echo esc_attr( $fields['product_1'][0]['product_1_link'] ); ?>"><?php 
 								
 									echo esc_html( $fields['product_1'][0]['product_1_name'] ); 
 									
