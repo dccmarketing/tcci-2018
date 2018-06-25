@@ -9,6 +9,10 @@ Pillars
 	}
 }
 
+.home-pillars-wrap {
+	@include homewrap(70);
+}
+
 .home-pillars__description {
 	font-size 		: 1.5em;
 	text-align		: center;

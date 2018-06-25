@@ -6,7 +6,7 @@ Facilities
 }
 
 .home-facilities-wrap {
-	@include homewrap;
+	@include homewrap(70);
 }
 
 .home-facilities-image {

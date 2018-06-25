@@ -142,37 +142,39 @@ get_header();
 
 			?></div>
 		</section>
-		<section class="home-pillars"><?php
+		<section class="home-pillars">
+			<div class="home-pillars-wrap"><?php
 
-			if ( ! empty( $fields['pillars_content'][0] ) ) :
+				if ( ! empty( $fields['pillars_content'][0] ) ) :
 
-				?><div class="home-pillars__description"><?php
+					?><div class="home-pillars__description"><?php
 
-					echo apply_filters( 'the_content', $fields['pillars_content'] );
+						echo apply_filters( 'the_content', $fields['pillars_content'] );
 
-				?></div><?php
+					?></div><?php
 
-			endif;
+				endif;
 
-			if ( ! empty( $fields['pillars'][0] ) ) :
+				if ( ! empty( $fields['pillars'][0] ) ) :
 
-				?><ul class="home-pillars-list"><?php
+					?><ul class="home-pillars-list"><?php
 
-					foreach ( $fields['pillars'] as $pillar ) :
+						foreach ( $fields['pillars'] as $pillar ) :
 
-						?><li class="home-pillar home-top-radius">
-							<a class="home-pillar-link home-top-radius" href="/about-us2/">
-								<img class="home-pillar-icon" src="<?php echo esc_url( $pillar['pillar_icon'] ); ?>" />
-							</a>
-						</li><?php
+							?><li class="home-pillar home-top-radius">
+								<a class="home-pillar-link home-top-radius" href="/about-us2/">
+									<img class="home-pillar-icon" src="<?php echo esc_url( $pillar['pillar_icon'] ); ?>" />
+								</a>
+							</li><?php
 
-					endforeach;
+						endforeach;
 
-				?></ul><?php
+					?></ul><?php
 
-			endif;
+				endif;
 
-		?></section>
+			?></div>
+		</section>
 		<section class="home-innovation">
 			<div class="home-innovation-wrap"><?php
 

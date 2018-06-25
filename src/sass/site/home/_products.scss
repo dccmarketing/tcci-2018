@@ -6,7 +6,7 @@ Products
 }
 
 .home-products-wrap {
-	@include homewrap;
+	@include homewrap(70);
 	@include homeborders;
 }
 
