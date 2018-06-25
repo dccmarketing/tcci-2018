@@ -74,6 +74,8 @@ get_header();
 
 					foreach ( $fields['awards'] as $award ) :
 
+						if ( empty($award['award']) ) { continue; }
+
 						?><li class="home-award">
 							<img src="<?php echo esc_url( $award['award'] ); ?>" />
 						</li><?php

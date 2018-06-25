@@ -9,21 +9,25 @@
 
 get_header();
 
-	?><div id="primary" class="content-area full-width">
-		<main id="main" role="main"><?php
+do_action( 'tcci_before_page_content' );
 
-		/**
-		 * The tcci_while_before action hook
-		 */
-		do_action( 'tcci_while_before' );
+?><div id="primary" class="content-area full-width">
+	<main id="main" role="main"><?php
 
-		while ( have_posts() ) : the_post();
+	/**
+	 * The tcci_while_before action hook
+	 */
+	do_action( 'tcci_while_before' );
 
-			get_template_part( 'template-parts/content', 'page' );
+	while ( have_posts() ) : the_post();
 
-		endwhile; // End of the loop.
+		get_template_part( 'template-parts/content', 'page' );
 
-		?></main><!-- #main -->
-	</div><!-- #primary --><?php
+	endwhile; // End of the loop.
+
+	?></main><!-- #main -->
+</div><!-- #primary --><?php
+
+do_action( 'tcci_after_page_content' );
 
 get_footer();

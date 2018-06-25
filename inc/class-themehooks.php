@@ -18,7 +18,7 @@ class TCCI_Themehooks {
 	 */
 	public function hooks() {
 
-		add_action( 'tcci_while_before', 		array( $this, 'breadcrumbs' ) );
+		add_action( 'tcci_while_before', 		array( $this, 'breadcrumbs' ), 10 );
 		add_action( 'tcci_while_before', 		array( $this, 'title_single_post' ) );
 
 		add_action( 'tcci_entry_content_after', array( $this, 'equal_features' ), 10 );
@@ -35,7 +35,7 @@ class TCCI_Themehooks {
 	 * Returns the appropriate breadcrumbs.
 	 *
 	 * @exits 		If on the front page.
-	 * @hooked		tcci_wrap_content
+	 * @hooked		tcci_while_before
 	 * @return 		mixed 				WooCommerce breadcrumbs, then Yoast breadcrumbs
 	 */
 	public function breadcrumbs() {

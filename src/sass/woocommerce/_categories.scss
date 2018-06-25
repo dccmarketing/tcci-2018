@@ -24,4 +24,19 @@
 	.term-description {
 		margin-bottom: $size__default-marg * 2;
 	}
+
+	.wrap-prodcat {
+		display: flex;
+		margin: 0 auto;
+		max-width: $size__max;
+	}
+
+	.product-categories {
+		background-color: $color__darkgray;
+		color: $color__light;
+	}
+
+	.product-categories-item-link {
+		@include unline( $color__light );
+	}
 }

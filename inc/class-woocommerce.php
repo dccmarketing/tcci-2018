@@ -41,9 +41,11 @@ class TCCI_WooCommerce {
 		add_action( 'pre_get_posts', 										array( $this, 'show_all_market_products' ) );
 		add_action( 'woocommerce_before_shop_loop', 						array( $this, 'woocommerce_result_count' ), 20 );
 		add_action( 'woocommerce_before_shop_loop', 						array( $this, 'woocommerce_catalog_ordering' ), 30 );
-		add_action( 'woocommerce_after_shop_loop', 							array( $this, 'add_form_to_tag_archive' ), 10, 1 );
 		add_action( 'woocommerce_before_shop_loop', 						array( $this, 'products_heading' ), 5 );
+		add_action( 'woocommerce_after_shop_loop', 							array( $this, 'add_form_to_tag_archive' ), 10, 1 );
 		add_action( 'woocommerce_after_shop_loop', 							array( $this, 'list_services' ), 5 );
+		add_action( 'tcci_before_page_content', 							array( $this, 'product_category_sidebar' ), 5 );
+		add_action( 'tcci_after_page_content', 								array( $this, 'product_category_sidebar_end' ) );
 
 		add_filter( 'loop_shop_columns', 									array( $this, 'product_columns' ), 10, 1 );
 		add_filter( 'get_the_archive_title', 								array( $this, 'remove_market_from_archive_title' ) );
@@ -158,6 +160,8 @@ class TCCI_WooCommerce {
 	 */
 	public function list_services() {
 
+		if ( ! is_shop() ) { return; }
+
 		$fields = get_fields( get_option( 'woocommerce_shop_page_id' ) );
 
 		$output = '';
@@ -194,6 +198,42 @@ class TCCI_WooCommerce {
 
 	} // products_heading()
 
+	public function product_category_class( $classes ) {
+
+		if ( is_product_category() ) {
+
+			$classes .= ' product-cat';
+
+		}
+
+		return $classes;
+
+	} // product_category_class()
+
+	/**
+	 * Adds a product category sidebar to all product category pages.
+	 * 
+	 * @hooked 		tcci_before_page_content 		5
+	 */
+	public function product_category_sidebar() {
+
+		if ( ! is_product_category() ) { return; }
+
+		echo '<div class="wrap-prodcat">';
+
+		get_sidebar('product-categories');
+
+	} // product_category_sidebar()
+
+	/**
+	 * Closes the wrap-prodcat element.
+	 */
+	public function product_category_sidebar_end() {
+
+		echo '</div><!-- .wrap-prodcat -->';
+
+	} // product_category_sidebar_end
+
 	/**
 	 * Changes the quantity of product columns on category pages.
 	 */
@@ -201,7 +241,7 @@ class TCCI_WooCommerce {
 
 		if ( is_product_category() ) {
 
-			$columns = 3;
+			$columns = 6;
 
 		}
 
