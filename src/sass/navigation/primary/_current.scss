@@ -1,19 +1,12 @@
 /**
  * Current Menu Items.
  */
-.current-primary-menu-item {
-
-	&:hover > a {
-		color: $color__darkgray;
-	}
-}
-
 .current-primary-menu-item-link {
-	color 		: $color__orange;
+	color 		: $color__light;
 	font-weight	: 700;
 
 	&:visited {
-		color: $color__orange;
+		color: $color__light;
 	}
 
 	@include tablet-to-laptop {
