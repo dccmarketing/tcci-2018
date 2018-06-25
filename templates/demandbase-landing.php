@@ -100,8 +100,8 @@ do_action( 'tcci_while_before' );
 
 				?></div>
 			</div>
-		</div>
-		<div class="landing-section landing-section-orange">
+		</section>
+		<section class="landing-section landing-section-orange">
 			<div class="section-landing-margin">
 				<div class="row"><?php 
 				
@@ -147,8 +147,8 @@ do_action( 'tcci_while_before' );
 				
 				?></div>
 			</div>
-		</div>
-		<div class="landing-section landing-section-white">
+		</section>
+		<section class="landing-section landing-section-white">
 			<div class="section-landing-margin">
 				<div class="row"><?php 
 				
@@ -194,7 +194,7 @@ do_action( 'tcci_while_before' );
 			
 				?></div>
 			</div>
-		</div>
+		</section>
 		<section id="request" class="landing-section landing-section-orange">
 			<div class="ending-content-style"><?php 
 			

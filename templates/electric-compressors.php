@@ -7,9 +7,9 @@
  * @package TCCI
  */
 
-get_header();
-
 $fields = get_fields( get_the_ID() );
+
+get_header();
 
 /**
  * The tcci_while_before action hook
@@ -18,7 +18,7 @@ do_action( 'tcci_while_before' );
 
 ?><div id="primary" class="full-width">
 	<main id="main" role="main">
-		<div class="white-section-landing">
+		<section class="landing-section landing-section-white landing-section-white-gray-text">
 			<div class="landing-margin">
 				<div class="row">
 					<div class="column">
@@ -28,37 +28,16 @@ do_action( 'tcci_while_before' );
 						<p class="last-line">18cc and 24cc Models Available In a Range of Voltage.</p>
 					</div>
 					<div class="column">
-						<p class="samples">Samples are now available for testing.
-							<br>Request a sample.
-						</p><?php 
+						<p class="samples">Samples are now available for testing. <br>Request a sample.</p><?php 
 						
-						echo FrmFormsController::get_form_shortcode( array( 'id' => 38, 'title' => false, 'description' => false ) ); 
+						echo FrmFormsController::get_form_shortcode( array( 'id' => $fields['form'], 'title' => false, 'description' => false ) ); 
 							
 					?></div>
 				</div>
 			</div>
-		</div>
-		<div class="landing-margin2"><?php 
-
-			if( $fields['compressors_gallery'] ): 
-			
-				?><ul><?php 
-				
-					foreach( $images as $image ): 
-					
-						?><li><?php 
-						
-							echo wp_get_attachment_image( $image['ID'], 'medium' ); 
-							
-						?></li><?php 
-						
-					endforeach; 
-					
-				?></ul><?php 
-				
-			endif; 
-			
-			?><h1 class="compressor-title"><?php 
+		</section>
+		<section class="landing-section landing-margin2">
+			<h1 class="compressor-title"><?php 
 			
 				the_title(); 
 				
@@ -66,7 +45,7 @@ do_action( 'tcci_while_before' );
 			
 			while ( have_posts() ) : the_post();
 
-				?><div class="entry-content-page"><?php 
+				?><div class="entry-content-page content-electric-landing"><?php 
 				
 					the_content(); 
 					
@@ -76,14 +55,10 @@ do_action( 'tcci_while_before' );
 
 			wp_reset_query(); //resetting the page query
 
-		?></div>
-		<div class="orange-section-landing">
-			<div class="r-button-marg">
-				<a href="mailto:sales@tccimfg.com">
-					<img src="/wp-content/uploads/2018/05/requestbutton.png" class="r-button-padding">
-				</a>
-			</div>
-		</div>
+		?></section>
+		<section class="landing-section landing-section-orange">
+			<a class="btn btn-white marg-center" href="mailto:sales@tccimfg.com">Request a Sample</a>
+		</section>
 	</main><!-- #main -->
 </div><!-- #primary --><?php
 

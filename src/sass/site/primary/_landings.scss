@@ -93,6 +93,10 @@
 	margin-bottom: 0;
 }
 
+.content-electric-landing p {
+	margin-bottom: 1.5em;
+}
+
 .description{
 	color: $color__dark;
 }
@@ -130,6 +134,11 @@
 .ending-content-style {
 	color: $color__light; 
 	text-align: center !important;
+
+	@include tablet-portrait-up {
+		margin: 0 auto;
+		max-width: 50%;
+	}
 }
 
 .landing-button {
@@ -293,6 +302,26 @@
 		color: $color__dark;
 		text-decoration: underline;
 	}
+}
+
+.btn-white {
+	background-color: $color__light;
+	border: 2px solid $color__dark;
+	color: $color__dark;
+	padding: 0.5em;
+
+	&:hover {
+		background-color: $color__dark;
+		color: $color__light;
+	}
+}
+
+.marg-center {
+	margin: 1em auto;
+}
+
+.landing-section-white-gray-text {
+	color: $color__darkgray;
 }
 
 .landing-page-product-link {
