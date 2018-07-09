@@ -31,6 +31,8 @@
 	}
 }
 
+
+
 .cc-range,
 .title-product {
 	text-align: center;
@@ -174,4 +176,18 @@
 
 .woocommerce-loop-category__title {
 	text-align: center;
+}
+
+.woocommerce #content div.product div.images,
+.woocommerce div.product div.images,
+.woocommerce-page #content div.product div.images, 
+.woocommerce-page div.product div.images {
+	width: 35%;
+}
+
+.woocommerce #content div.product div.summary, 
+.woocommerce div.product div.summary, 
+.woocommerce-page #content div.product div.summary, 
+.woocommerce-page div.product div.summary {
+	width: 61%;
 }

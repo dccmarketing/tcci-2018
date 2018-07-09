@@ -34,6 +34,10 @@
 	.product-categories {
 		background-color: $color__darkgray;
 		color: $color__light;
+
+		@include mobile-admin-down {
+			display: none;
+		}
 	}
 
 	.product-categories-item-link {

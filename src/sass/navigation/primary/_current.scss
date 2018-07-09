@@ -2,11 +2,11 @@
  * Current Menu Items.
  */
 .current-primary-menu-item-link {
-	color 		: $color__light;
+	color 		: $color__orange;
 	font-weight	: 700;
 
 	&:visited {
-		color: $color__light;
+		color: $color__orange;
 	}
 
 	@include tablet-to-laptop {
