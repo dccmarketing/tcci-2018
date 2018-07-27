@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The header for our theme.
  *
@@ -28,27 +29,18 @@
 				r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
 				a.appendChild(r);
 			})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-		</script><!-- Hotjar Tracking Code for http://www.tccimfg.com/ -->
+		</script><!-- Hotjar Tracking Code for http://www.tccimfg.com/ --><!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TBBMVD');</script>
+<!-- End Google Tag Manager -->
 	</head>
-	<body <?php body_class(); ?>><?php
-
-		$tag_id = get_theme_mod( 'tag_manager_id' );
-
-		if ( ! empty( $tag_id ) ) :
-
-			echo '<!-- Google Tag Manager -->';
-			echo '<noscript><iframe src="//www.googletagmanager.com/ns.html?id=' . $tag_id . '?>"
-		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':
-		new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=
-		\'//www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,\'script\',\'dataLayer\',\'' . $tag_id . '\');</script>';
-			echo '<!-- Google Tag Manager -->';
-
-		endif;
-
-		?><a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'tcci' ); ?></a>
+	<body <?php body_class(); ?>><!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TBBMVD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --><a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'tcci' ); ?></a>
 		<header class="site-header" role="banner"><?php
 
 			$logo = get_custom_logo();
