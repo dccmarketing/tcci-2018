@@ -185,7 +185,7 @@ get_header();
 					$media_dir = wp_upload_dir();
 					$images = tcci_get_featured_images( $fields['innovation_product']->ID );
 
-					?><img class="home-innovation-image" src="<?php echo esc_url( $media_dir['baseurl'] ); ?>/2018/03/innovation-spotlight-header.png" /><?php
+					?><img class="home-innovation-image" src="<?php echo esc_url( $media_dir['baseurl'] ); ?>/2018/10/3176_Website_Innovation_Spotlight_graphic_10-15P_v4.jpg" /><?php
 					
 					if ( ! empty( $fields['innovation_content'] ) ) {
 
@@ -198,11 +198,11 @@ get_header();
 					}
 					
 					?><div class="home-innovation-content">
-						<a class="home-innovation-image-link home-top-radius" href="<?php echo esc_url( get_permalink( $fields['innovation_product']->ID ) ); ?>">
+						<a class="home-innovation-image-link home-top-radius" href="<?php the_field('innovation_link'); ?>">
 							<img class="home-innovation-image" src="<?php echo esc_url( $images['sizes']['medium']['url'] ); ?>" />
 						</a>
 						<div class="home-innovation-product-description">
-							<a class="home-innovation-title-link" href="<?php echo esc_url( get_permalink( $fields['innovation_product']->ID ) ); ?>">
+							<a class="home-innovation-title-link" href="<?php the_field('innovation_link'); ?>">
 								<h2 class="home-innovation-title"><?php echo esc_html( $fields['innovation_product']->post_title ); ?></h2>
 							</a><?php
 
